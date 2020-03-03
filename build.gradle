@@ -1,0 +1,114 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'signing'
+}
+
+group = 'com.huibur.furion'
+version = '1.0.0'
+
+repositories {
+    mavenLocal()
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:27.1-jre'
+    implementation 'org.apache.commons:commons-lang3:3.9'
+    implementation 'commons-codec:commons-codec:1.12'
+    implementation 'commons-io:commons-io:2.6'
+    implementation 'commons-fileupload:commons-fileupload:1.4'
+    implementation 'commons-beanutils:commons-beanutils:1.9.3'
+    implementation 'org.apache.commons:commons-text:1.6'
+    implementation 'org.apache.poi:poi:4.1.0'
+    implementation 'org.springframework:spring-beans:5.1.7.RELEASE'
+    implementation 'de.ruedigermoeller:fst:2.57'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.9.7'
+    implementation 'org.springframework:spring-web:5.0.10.RELEASE'
+    implementation 'dom4j:dom4j:1.6.1'
+    implementation 'com.bladejava:blade-patchca:1.1.0'
+    implementation 'net.sf.jmimemagic:jmimemagic:0.1.5'
+    implementation 'org.apache.ant:ant:1.9.7'
+    implementation 'com.belerweb:pinyin4j:2.5.1'
+    implementation 'org.apache.commons:commons-email:1.5'
+    implementation 'com.google.zxing:core:3.3.2'
+    implementation 'com.google.zxing:javase:3.3.2'
+    implementation 'org.apache.poi:poi-ooxml:3.15'
+    implementation 'eu.bitwalker:UserAgentUtils:1.21'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.3'
+    implementation 'net.coobird:thumbnailator:0.4.8'
+    implementation 'net.sf.dozer:dozer:5.5.1'
+    implementation 'com.github.pagehelper:pagehelper:5.1.10'
+    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'furion-base'
+            from components.java
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                name = 'furion base'
+                description = 'a base module for java web'
+                url = 'https://github.com/furion-component/Furion-Base.git'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'wenzhijie'
+                        name = 'wenzhijie'
+                        email = 'wenzhi_jie@126.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/furion-component/Furion-Base'
+                    developerConnection = 'scm:git:ssh://git@github.com:furion-component/Furion-Base.git'
+                    url = 'https://github.com/furion-component/Furion-Base.git'
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            url "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+            credentials {
+                username sonatypeUsername
+                password sonatypePassword
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}
+
+javadoc {
+    options{
+        encoding "UTF-8"
+        charSet 'UTF-8'
+    }
+    if (JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+}
