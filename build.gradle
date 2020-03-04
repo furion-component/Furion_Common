@@ -8,10 +8,7 @@ group = 'com.huibur.furion'
 version = '1.0.0'
 
 repositories {
-    mavenLocal()
-    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
     mavenCentral()
-    jcenter()
 }
 
 dependencies {
@@ -52,7 +49,7 @@ java {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            artifactId = 'furion-base'
+            artifactId = 'furion-common'
             from components.java
             versionMapping {
                 usage('java-api') {
@@ -63,9 +60,9 @@ publishing {
                 }
             }
             pom {
-                name = 'furion base'
-                description = 'a base module for java web'
-                url = 'https://github.com/furion-component/Furion-Base.git'
+                name = 'furion common'
+                description = 'a common module for java web'
+                url = 'https://github.com/furion-component/furion-common.git'
                 licenses {
                     license {
                         name = 'The Apache License, Version 2.0'
@@ -80,9 +77,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection = 'scm:git:git://github.com/furion-component/Furion-Base'
-                    developerConnection = 'scm:git:ssh://git@github.com:furion-component/Furion-Base.git'
-                    url = 'https://github.com/furion-component/Furion-Base.git'
+                    connection = 'scm:git:git://github.com/furion-component/furion-common'
+                    developerConnection = 'scm:git:ssh://git@github.com:furion-component/furion-common.git'
+                    url = 'https://github.com/furion-component/furion-common.git'
                 }
             }
         }
