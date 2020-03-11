@@ -5,8 +5,8 @@ import java.io.*;
 /*******************************************************
  * Copyright(c)2019-2019 HuiBur. All rights reserved.
  * Header: CommandUtils.java
- * Discussion: 命令行工具类
- * Create Date：2019/6/6
+ * Discussion: Command line utils
+ * Create Date: 2019/6/6
  * Author: Jerry Wen
  * Version: 1.0
  *******************************************************/
@@ -34,5 +34,4 @@ public class CommandUtils {
 		reader.close();
 		return sb.toString();
 	}
-	
 }

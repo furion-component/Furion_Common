@@ -6,19 +6,23 @@ import java.util.List;
 import com.huibur.furion.common.lang.StringUtils;
 
 /*******************************************************
- * Copyright(c)2019-2019 HuiBur. All rights reserved.
+ * Copyright(c)2019-2020 HuiBur. All rights reserved.
  * Header: DESUtils.java
- * Discussion: DES加密解密工具
- * Create Date：2019/6/6
+ * Discussion: DES algorithm
+ * Create Date: 2019/6/6
  * Author: Jerry Wen
  * Version: 1.0
  *******************************************************/
 public class DESUtils {
 	private static DesCore desCore = new DesCore();
 
-	/**
-	 * DES加密（secretKey代表3个key，用逗号分隔）
-	 */
+	/***
+	 * Name: encode
+	 * Discussion: encrypt data
+	 * @param data plain text
+	 * @param secretKey three keys, split by ','
+	 * @return cipher text
+	 ***/
 	public static String encode(String data, String secretKey) {
 		if (StringUtils.isBlank(data)){
 			return "";
@@ -30,9 +34,13 @@ public class DESUtils {
 		return desCore.strEnc(data, secretKey, "", "");
 	}
 
-	/**
-	 * DES解密（secretKey代表3个key，用逗号分隔）
-	 */
+	/***
+	 * Name: decode
+	 * Discussion: decode data
+	 * @param data cipher text
+	 * @param secretKey  three keys, split by ','
+	 * @return plain text
+	 ***/
 	public static String decode(String data, String secretKey) {
 		if (StringUtils.isBlank(data)){
 			return "";
@@ -44,11 +52,6 @@ public class DESUtils {
 		return desCore.strDec(data, secretKey, "", "");
 	}
 
-	/**
-	 * DES加密/解密
-	 * @Copyright Copyright (c) 2006
-	 * @author Guapo
-	 */
 	@SuppressWarnings({"rawtypes","unused","unchecked"})
 	static class DesCore {
 		
