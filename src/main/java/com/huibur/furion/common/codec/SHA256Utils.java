@@ -8,18 +8,12 @@ import java.security.NoSuchAlgorithmException;
  * Copyright(c)2019-2019 HuiBur. All rights reserved.
  * Header: SHA256Utils.java
  * Discussion:
- * Create Date：2019/6/13
+ * Create Date: 2019/6/13
  * Author: Jerry Wen
  * Version: 1.0
  *******************************************************/
 public class SHA256Utils {
-     /***
-      * Name: getSHA256Str
-      * Discussion: SHA256加密
-      * Params:
-      *     加密后的报文
-      * Return:
-      ***/
+
     public static String getSHA256Str(String str) {
         MessageDigest messageDigest;
         String encodeStr = "";
@@ -35,12 +29,7 @@ public class SHA256Utils {
         return encodeStr;
     }
 
-    /**
-     * 　　* 将byte转为16进制
-     * 　　* @param bytes
-     * 　　* @return
-     *
-     */
+
     private static String byte2Hex(byte[] bytes) {
         StringBuffer stringBuffer = new StringBuffer();
         String temp = null;

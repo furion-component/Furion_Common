@@ -141,11 +141,7 @@ public class VideoUtils {
 		return statusTemp;
 	}
 
-	/**
-	 * 检查文件是否存在
-	 * @param inputFile
-	 * @return boolean
-	 */
+
 	public boolean checkfile(String inputFile) {
 		File file = new File(inputFile);
 		if (!file.isFile() || !file.exists()) {
@@ -155,11 +151,11 @@ public class VideoUtils {
 		return true;
 	}
 
-	/**
-	 * ffmpeg 截取缩略图
-	 * @param inputFile
-	 * @return boolean  
-	 */
+//	/**
+//	 * ffmpeg 截取缩略图
+//	 * @param inputFile
+//	 * @return boolean
+//	 */
 	public boolean processFfmpegCutpic(String inputFile, String outputFile) {
 		List<String> command = new ArrayList<String>();
 		command.add(getFfmpegFile());

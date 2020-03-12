@@ -16,11 +16,11 @@ import java.io.StringWriter;
  */
 public class ExceptionUtils {
 
-	/**
-	 * 在request中获取异常类
-	 * @param request
-	 * @return 
-	 */
+//	/**
+//	 * 在request中获取异常类
+//	 * @param request
+//	 * @return
+//	 */
 	public static Throwable getThrowable(HttpServletRequest request){
 		Throwable ex = null;
 		if (request.getAttribute("exception") != null) {
@@ -31,9 +31,9 @@ public class ExceptionUtils {
 		return ex;
 	}
 
-	/**
-	 * 将ErrorStack转化为String.
-	 */
+//	/**
+//	 * 将ErrorStack转化为String.
+//	 */
 	public static String getStackTraceAsString(Throwable e) {
 		if (e == null){
 			return "";
@@ -43,9 +43,9 @@ public class ExceptionUtils {
 		return stringWriter.toString();
 	}
 
-	/**
-	 * 判断异常是否由某些底层的异常引起.
-	 */
+//	/**
+//	 * 判断异常是否由某些底层的异常引起.
+//	 */
 	@SuppressWarnings("unchecked")
 	public static boolean isCausedBy(Exception ex, Class<? extends Exception>... causeExceptionClasses) {
 		Throwable cause = ex.getCause();
@@ -60,9 +60,9 @@ public class ExceptionUtils {
 		return false;
 	}
 	
-	/**
-	 * 将CheckedException转换为UncheckedException.
-	 */
+//	/**
+//	 * 将CheckedException转换为UncheckedException.
+//	 */
 	public static RuntimeException unchecked(Exception e) {
 		if (e instanceof RuntimeException) {
 			return (RuntimeException) e;

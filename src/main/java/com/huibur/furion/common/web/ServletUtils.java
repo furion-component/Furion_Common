@@ -1,13 +1,14 @@
 /**
  * Copyright (c) 2013-Now http://jeesite.com All rights reserved.
  */
-package com.huibur.furion.common.web.http;
+package com.huibur.furion.common.web;
 
 import com.huibur.furion.common.collect.MapUtils;
 import com.huibur.furion.common.io.PropertiesUtils;
 import com.huibur.furion.common.lang.StringUtils;
 import com.huibur.furion.common.mapper.JsonMapper;
 import com.huibur.furion.common.mapper.XmlMapper;
+
 
 import org.apache.commons.lang3.Validate;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -34,12 +35,12 @@ public class ServletUtils {
 	private static String[] staticFiles;
 	private static String[] staticFileExcludeUri;
 	
-	/**
-	 * 获取当前请求对象
-	 * web.xml: <listener><listener-class>
-	 * 	org.springframework.web.context.request.RequestContextListener
-	 * 	</listener-class></listener>
-	 */
+//	/**
+//	 * 获取当前请求对象
+//	 * web.xml: <listener><listener-class>
+//	 * 	org.springframework.web.context.request.RequestContextListener
+//	 * 	</listener-class></listener>
+//	 */
 	public static HttpServletRequest getRequest(){
 		HttpServletRequest request = null;
 		try{
@@ -53,12 +54,12 @@ public class ServletUtils {
 		}
 	}
 	
-	/**
-	 * 获取当前相应对象
-	 * web.xml: <filter><filter-name>requestContextFilter</filter-name><filter-class>
-	 * 	org.springframework.web.filter.RequestContextFilter</filter-class></filter><filter-mapping>
-	 * 	<filter-name>requestContextFilter</filter-name><url-pattern>/*</url-pattern></filter-mapping>
-	 */
+//	/**
+//	 * 获取当前相应对象
+//	 * web.xml: <filter><filter-name>requestContextFilter</filter-name><filter-class>
+//	 * 	org.springframework.web.filter.RequestContextFilter</filter-class></filter><filter-mapping>
+//	 * 	<filter-name>requestContextFilter</filter-name><url-pattern>/*</url-pattern></filter-mapping>
+//	 */
 	public static HttpServletResponse getResponse(){
 		HttpServletResponse response = null;
 		try{
@@ -72,9 +73,9 @@ public class ServletUtils {
 		return response;
 	}
 	
-	/**
-	 * 支持AJAX的页面跳转
-	 */
+//	/**
+//	 * 支持AJAX的页面跳转
+//	 */
 	public static void redirectUrl(HttpServletRequest request, HttpServletResponse response, String url){
 		try {
 			if (ServletUtils.isAjaxRequest(request)){
@@ -87,10 +88,10 @@ public class ServletUtils {
 		}
 	}
 	
-	/**
-	 * 是否是Ajax异步请求
-	 * @param request
-	 */
+//	/**
+//	 * 是否是Ajax异步请求
+//	 * @param request
+//	 */
 	public static boolean isAjaxRequest(HttpServletRequest request){
 		
 		String accept = request.getHeader("accept");
@@ -116,11 +117,11 @@ public class ServletUtils {
 		
 		return false;
 	}
-
-	/**
-     * 判断访问URI是否是静态文件请求
-	 * @throws Exception 
-     */
+//
+//	/**
+//     * 判断访问URI是否是静态文件请求
+//	 * @throws Exception
+//     */
     public static boolean isStaticFile(String uri){
 		if (staticFiles == null){
 			PropertiesUtils pl = PropertiesUtils.getInstance();
@@ -157,7 +158,6 @@ public class ServletUtils {
 	 * 返回结果JSON字符串（支持JsonP，请求参数加：__callback=回调函数名）
 	 * @param result Global.TRUE or Globle.False
 	 * @param message 执行消息
-	 * @param data 消息数据
 	 * @return JSON字符串：{result:'true',message:''}
 	 */
 	public static String renderResult(String result, String message) {
@@ -227,7 +227,7 @@ public class ServletUtils {
 	
 	/**
 	 * 将对象转换为JSON、XML、JSONP字符串渲染到客户端（JsonP，请求参数加：__callback=回调函数名）
-	 * @param request 请求对象，用来得到输出格式的指令：JSON、XML、JSONP
+	 * @param response 请求对象，用来得到输出格式的指令：JSON、XML、JSONP
 	 * @param response 渲染对象
 	 * @param object 待转换JSON并渲染的对象
 	 * @return null
@@ -258,12 +258,12 @@ public class ServletUtils {
 		return renderString(response, string, null);
 	}
 	
-	/**
-	 * 将字符串渲染到客户端
-	 * @param response 渲染对象
-	 * @param string 待渲染的字符串
-	 * @return null
-	 */
+//	/**
+//	 * 将字符串渲染到客户端
+//	 * @param response 渲染对象
+//	 * @param string 待渲染的字符串
+//	 * @return null
+//	 */
 	public static String renderString(HttpServletResponse response, String string, String type) {
 		try {
 //			response.reset(); // 注释掉，否则以前设置的Header会被清理掉，如ajax登录设置记住我的Cookie信息
@@ -286,9 +286,9 @@ public class ServletUtils {
 		return null;
 	}
 
-	/**
-	 * 获得请求参数值
-	 */
+//	/**
+//	 * 获得请求参数值
+//	 */
 	public static String getParameter(String name) {
 		HttpServletRequest request = getRequest();
 		if (request == null){
@@ -297,16 +297,16 @@ public class ServletUtils {
 		return request.getParameter(name);
 	}
 	
-	/**
-	 * 获得请求参数Map
-	 */
+//	/**
+//	 * 获得请求参数Map
+//	 */
 	public static Map<String, Object> getParameters() {
 		return getParameters(getRequest());
 	}
 	
-	/**
-	 * 获得请求参数Map
-	 */
+//	/**
+//	 * 获得请求参数Map
+//	 */
 	public static Map<String, Object> getParameters(ServletRequest request) {
 		if (request == null){
 			return MapUtils.newHashMap();
@@ -314,10 +314,10 @@ public class ServletUtils {
 		return getParametersStartingWith(request, "");
 	}
 
-	/**
-	 * 取得带相同前缀的Request Parameters, copy from spring WebUtils.
-	 * 返回的结果的Parameter名已去除前缀.
-	 */
+//	/**
+//	 * 取得带相同前缀的Request Parameters, copy from spring WebUtils.
+//	 * 返回的结果的Parameter名已去除前缀.
+//	 */
 	@SuppressWarnings("rawtypes")
 	public static Map<String, Object> getParametersStartingWith(ServletRequest request, String prefix) {
 		Validate.notNull(request, "Request must not be null");
@@ -345,9 +345,9 @@ public class ServletUtils {
 		return params;
 	}
 
-	/**
-	 * 组合Parameters生成Query String的Parameter部分,并在paramter name上加上prefix.
-	 */
+//	/**
+//	 * 组合Parameters生成Query String的Parameter部分,并在paramter name上加上prefix.
+//	 */
 	public static String encodeParameterStringWithPrefix(Map<String, Object> params, String prefix) {
 		StringBuilder queryStringBuilder = new StringBuilder();
 		String pre = prefix;
@@ -381,9 +381,9 @@ public class ServletUtils {
 		return paramMap;
 	}
 	
-	/**
-	 * 设置客户端缓存过期时间 的Header.
-	 */
+//	/**
+//	 * 设置客户端缓存过期时间 的Header.
+//	 */
 	public static void setExpiresHeader(HttpServletResponse response, long expiresSeconds) {
 		// Http 1.0 header, set a fix expires date.
 		response.setDateHeader(HttpHeaders.EXPIRES, System.currentTimeMillis() + expiresSeconds * 1000);
@@ -391,9 +391,9 @@ public class ServletUtils {
 		response.setHeader(HttpHeaders.CACHE_CONTROL, "private, max-age=" + expiresSeconds);
 	}
 
-	/**
-	 * 设置禁止客户端缓存的Header.
-	 */
+//	/**
+//	 * 设置禁止客户端缓存的Header.
+//	 */
 	public static void setNoCacheHeader(HttpServletResponse response) {
 		// Http 1.0 header
 		response.setDateHeader(HttpHeaders.EXPIRES, 1L);
@@ -402,25 +402,25 @@ public class ServletUtils {
 		response.setHeader(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, max-age=0");
 	}
 
-	/**
-	 * 设置LastModified Header.
-	 */
+//	/**
+//	 * 设置LastModified Header.
+//	 */
 	public static void setLastModifiedHeader(HttpServletResponse response, long lastModifiedDate) {
 		response.setDateHeader(HttpHeaders.LAST_MODIFIED, lastModifiedDate);
 	}
 
-	/**
-	 * 设置Etag Header.
-	 */
+//	/**
+//	 * 设置Etag Header.
+//	 */
 	public static void setEtag(HttpServletResponse response, String etag) {
 		response.setHeader(HttpHeaders.ETAG, etag);
 	}
 
-	/**
-	 * 根据浏览器If-Modified-Since Header, 计算文件是否已被修改.
-	 * 如果无修改, checkIfModify返回false ,设置304 not modify status.
-	 * @param lastModified 内容的最后修改时间.
-	 */
+//	/**
+//	 * 根据浏览器If-Modified-Since Header, 计算文件是否已被修改.
+//	 * 如果无修改, checkIfModify返回false ,设置304 not modify status.
+//	 * @param lastModified 内容的最后修改时间.
+//	 */
 	public static boolean checkIfModifiedSince(HttpServletRequest request, HttpServletResponse response,
                                                long lastModified) {
 		long ifModifiedSince = request.getDateHeader(HttpHeaders.IF_MODIFIED_SINCE);
@@ -431,11 +431,11 @@ public class ServletUtils {
 		return true;
 	}
 
-	/**
-	 * 根据浏览器 If-None-Match Header, 计算Etag是否已无效.
-	 * 如果Etag有效, checkIfNoneMatch返回false, 设置304 not modify status.
-	 * @param etag 内容的ETag.
-	 */
+//	/**
+//	 * 根据浏览器 If-None-Match Header, 计算Etag是否已无效.
+//	 * 如果Etag有效, checkIfNoneMatch返回false, 设置304 not modify status.
+//	 * @param etag 内容的ETag.
+//	 */
 	public static boolean checkIfNoneMatchEtag(HttpServletRequest request, HttpServletResponse response, String etag) {
 		String headerValue = request.getHeader(HttpHeaders.IF_NONE_MATCH);
 		if (headerValue != null) {

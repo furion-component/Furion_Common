@@ -11,11 +11,11 @@ import java.io.*;
  */
 public class IOUtils extends org.apache.commons.io.IOUtils {
 
-	/**
-	 * 根据文件路径创建文件输入流处理 以字节为单位（非 unicode ）
-	 * @param path
-	 * @return
-	 */
+//	/**
+//	 * 根据文件路径创建文件输入流处理 以字节为单位（非 unicode ）
+//	 * @param path
+//	 * @return
+//	 */
 	public static FileInputStream getFileInputStream(String filepath) {
 		FileInputStream fileInputStream = null;
 		try {
@@ -27,11 +27,11 @@ public class IOUtils extends org.apache.commons.io.IOUtils {
 		return fileInputStream;
 	}
 
-	/**
-	 * 根据文件对象创建文件输入流处理 以字节为单位（非 unicode ）
-	 * @param path
-	 * @return
-	 */
+//	/**
+//	 * 根据文件对象创建文件输入流处理 以字节为单位（非 unicode ）
+//	 * @param path
+//	 * @return
+//	 */
 	public static FileInputStream getFileInputStream(File file) {
 		FileInputStream fileInputStream = null;
 		try {
@@ -43,12 +43,12 @@ public class IOUtils extends org.apache.commons.io.IOUtils {
 		return fileInputStream;
 	}
 
-	/**
-	 * 根据文件对象创建文件输出流处理 以字节为单位（非 unicode ）
-	 * @param file
-	 * @param append true:文件以追加方式打开,false:则覆盖原文件的内容
-	 * @return
-	 */
+//	/**
+//	 * 根据文件对象创建文件输出流处理 以字节为单位（非 unicode ）
+//	 * @param file
+//	 * @param append true:文件以追加方式打开,false:则覆盖原文件的内容
+//	 * @return
+//	 */
 	public static FileOutputStream getFileOutputStream(File file, boolean append) {
 		FileOutputStream fileOutputStream = null;
 		try {
@@ -60,12 +60,12 @@ public class IOUtils extends org.apache.commons.io.IOUtils {
 		return fileOutputStream;
 	}
 
-	/**
-	 * 根据文件路径创建文件输出流处理 以字节为单位（非 unicode ）
-	 * @param path
-	 * @param append true:文件以追加方式打开,false:则覆盖原文件的内容
-	 * @return
-	 */
+//	/**
+//	 * 根据文件路径创建文件输出流处理 以字节为单位（非 unicode ）
+//	 * @param filepath
+//	 * @param append true:文件以追加方式打开,false:则覆盖原文件的内容
+//	 * @return
+//	 */
 	public static FileOutputStream getFileOutputStream(String filepath, boolean append) {
 		FileOutputStream fileOutputStream = null;
 		try {
@@ -77,16 +77,16 @@ public class IOUtils extends org.apache.commons.io.IOUtils {
 		return fileOutputStream;
 	}
 
-	/**
-	 * Closes a <code>Closeable</code> unconditionally.
-	 */
+//	/**
+//	 * Closes a <code>Closeable</code> unconditionally.
+//	 */
 	public static void closeQuietly(final InputStream input) {
         closeQuietly((Closeable) input);
     }
 	
-	/**
-	 * Closes a <code>Closeable</code> unconditionally.
-	 */
+//	/**
+//	 * Closes a <code>Closeable</code> unconditionally.
+//	 */
 	public static void closeQuietly(final Closeable closeable) {
         try {
             if (closeable != null) {

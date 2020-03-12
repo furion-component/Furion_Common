@@ -29,26 +29,26 @@ public class PinyinUtils {
 		}
 	}
 
-	 /***
-	  * Name: getFirstSpell
-	  * Discussion: 获取汉字串拼音首字母，替换调非法标示符字符，英文字符不变，去除空格
-	  * Params:
-	  * 	预转换包含中文的内容
-	  * Return:
-	  ***/
+//	 /***
+//	  * Name: getFirstSpell
+//	  * Discussion: 获取汉字串拼音首字母，替换调非法标示符字符，英文字符不变，去除空格
+//	  * Params:
+//	  * 	预转换包含中文的内容
+//	  * Return:
+//	  ***/
 	public static String getFirstSpell(String chinese) {
 		return getFirstSpell(chinese, true);
 	}
 
-	 /***
-	  * Name:
-	  * Discussion: 获取汉字串拼音首字母，替换调非法标示符字符，英文字符不变，去除空格
-	  * Params:
-	  * 	chinese 汉字串
-	  * 	isId 是否标示符（true：将去掉特殊字符）
-	  * Return:
-	  * 	汉语拼音首字母
-	  ***/
+//	 /***
+//	  * Name:
+//	  * Discussion: 获取汉字串拼音首字母，替换调非法标示符字符，英文字符不变，去除空格
+//	  * Params:
+//	  * 	chinese 汉字串
+//	  * 	isId 是否标示符（true：将去掉特殊字符）
+//	  * Return:
+//	  * 	汉语拼音首字母
+//	  ***/
 	public static String getFirstSpell(String chinese, boolean isId) {
 		chinese = getDbc(chinese);
 		if (chinese == null){
@@ -78,11 +78,11 @@ public class PinyinUtils {
 		return pybf.toString();
 	}
 
-	/**
-	 * 获取汉字串全拼，英文字符不变
-	 * @param chinese 汉字串
-	 * @return 汉语拼音
-	 */
+//	/**
+//	 * 获取汉字串全拼，英文字符不变
+//	 * @param chinese 汉字串
+//	 * @return 汉语拼音
+//	 */
 	public static String getFullSpell(String chinese) {
 		return getFullSpell(chinese, true);
 	}

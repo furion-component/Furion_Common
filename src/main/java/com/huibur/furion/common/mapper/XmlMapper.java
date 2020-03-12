@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * XML <-> Map、Object
+ * XML  Map、Object
  * @author ThinkGem
  * @version 2016-9-2
  */
@@ -40,9 +40,9 @@ public class XmlMapper extends com.fasterxml.jackson.dataformat.xml.XmlMapper{
 				.getProperty("lang.defaultTimeZone", "GMT+08:00")));
 	}
 	
-	/**
-	 * Object可以是POJO，也可以是Collection或数组。
-	 */
+//	/**
+//	 * Object可以是POJO，也可以是Collection或数组。
+//	 */
 	public String toXmlString(Object object) {
 		try {
 			return this.writeValueAsString(object);
@@ -52,10 +52,10 @@ public class XmlMapper extends com.fasterxml.jackson.dataformat.xml.XmlMapper{
 		}
 	}
 	
-	/**
-	 * 反序列化POJO或简单Collection如List<String>.
-	 * @see #fromJson(String, JavaType)
-	 */
+//	/**
+//	 * 反序列化POJO或简单Collection.
+//	 * @see #fromJson(String, JavaType)
+//	 */
 	public <T> T fromXmlString(String xmlString, Class<T> clazz) {
 		if (StringUtils.isEmpty(xmlString) || "<CLOB>".equals(xmlString)) {
 			return null;
@@ -68,34 +68,34 @@ public class XmlMapper extends com.fasterxml.jackson.dataformat.xml.XmlMapper{
 		}
 	}
 	
-	/**
-	 * 获取当前实例
-	 */
+//	/**
+//	 * 获取当前实例
+//	 */
 	public static XmlMapper getInstance() {
 		return XmlMapperHolder.INSTANCE;
 	}
 	
-	/**
-	 * 对象转换为XML字符串
-	 */
+//	/**
+//	 * 对象转换为XML字符串
+//	 */
 	public static String toXml(Object object){
 		return XmlMapper.getInstance().toXmlString(object);
 	}
 	
-	/**
-	 * XML字符串转换为对象
-	 */
+//	/**
+//	 * XML字符串转换为对象
+//	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T fromXml(String jsonString, Class<?> clazz){
 		return (T) XmlMapper.getInstance().fromXmlString(jsonString, clazz);
 	}
 	
-	/**
-	 * xml转map 不带属性
-	 * @param xmlStr
-	 * @param needRootKey 是否需要在返回的map里加根节点键
-	 * @throws DocumentException
-	 */
+//	/**
+//	 * xml转map 不带属性
+//	 * @param xmlStr
+//	 * @param needRootKey 是否需要在返回的map里加根节点键
+//	 * @throws DocumentException
+//	 */
 	@SuppressWarnings("unchecked")
 	public static Map<String, Object> xmlToMap(String xmlStr, boolean needRootKey) {
 		try {
@@ -118,13 +118,13 @@ public class XmlMapper extends com.fasterxml.jackson.dataformat.xml.XmlMapper{
 		return null;
 	}
 
-	/**
-	 * xml转map 带属性
-	 * @param xmlStr
-	 * @param needRootKey 是否需要在返回的map里加根节点键
-	 * @return
-	 * @throws DocumentException
-	 */
+//	/**
+//	 * xml转map 带属性
+//	 * @param xmlStr
+//	 * @param needRootKey 是否需要在返回的map里加根节点键
+//	 * @return
+//	 * @throws DocumentException
+//	 */
 	@SuppressWarnings("unchecked")
 	public static Map<String, Object> xmlToMapWithAttr(String xmlStr, boolean needRootKey) {
 		try {

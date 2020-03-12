@@ -12,9 +12,9 @@ import java.util.Date;
  */
 public class TimeUtils {
 	
-	/**
-	 * 将毫秒数转换为：xx天，xx时，xx分，xx秒
-	 */
+//	/**
+//	 * 将毫秒数转换为：xx天，xx时，xx分，xx秒
+//	 */
 	public static String formatDateAgo(long millisecond) {
 		long ms = millisecond;
 		int ss = 1000;
@@ -45,16 +45,16 @@ public class TimeUtils {
 		return sb.toString();
 	}
 
-	/**
-	 * 将过去的时间转为为，刚刚，xx秒，xx分钟，xx小时前、xx天前，大于3天的显示日期
-	 */
+//	/**
+//	 * 将过去的时间转为为，刚刚，xx秒，xx分钟，xx小时前、xx天前，大于3天的显示日期
+//	 */
 	public static String formatTimeAgo(String dateTime) {
 		return formatTimeAgo(DateUtils.parseDate(dateTime));
 	}
 
-	/**
-	 * 将过去的时间转为为，刚刚，xx秒，xx分钟，xx小时前、xx天前，大于3天的显示日期
-	 */
+//	/**
+//	 * 将过去的时间转为为，刚刚，xx秒，xx分钟，xx小时前、xx天前，大于3天的显示日期
+//	 */
 	public static String formatTimeAgo(Date dateTime) {
 		String interval = null;
 		// 得出的时间间隔是毫秒

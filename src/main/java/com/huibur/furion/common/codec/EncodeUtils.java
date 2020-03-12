@@ -18,7 +18,7 @@ import org.apache.commons.text.StringEscapeUtils;
 /*******************************************************
  * Copyright(c)2019-2019 HuiBur. All rights reserved.
  * Header: EncodeUtils.java
- * Discussion: 封装各种格式的编码解码工具类
+ * Discussion: Encoding and decoding tools for various formats
  * Create Date：2019/6/6
  * Author: Jerry Wen
  * Version: 1.0
@@ -27,16 +27,16 @@ public class EncodeUtils {
     private static final String DEFAULT_URL_ENCODING = "UTF-8";
     private static final char[] BASE62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".toCharArray();
 
-    /**
-     * Hex编码.
-     */
+//    /**
+//     * Hex encode.
+//     */
     public static String encodeHex(byte[] input) {
         return new String(Hex.encodeHex(input));
     }
 
-    /**
-     * Hex解码.
-     */
+//    /**
+//     * Hex decode.
+//     */
     public static byte[] decodeHex(String input) {
 
         try {
@@ -47,16 +47,16 @@ public class EncodeUtils {
         return null;
     }
 
-    /**
-     * Base64编码.
-     */
+//    /**
+//     * Base64 encode.
+//     */
     public static String encodeBase64(byte[] input) {
         return new String(Base64.encodeBase64(input));
     }
 
-    /**
-     * Base64编码.
-     */
+//    /**
+//     * Base64 decode.
+//     */
     public static String encodeBase64(String input) {
         try {
             return new String(Base64.encodeBase64(input.getBytes(DEFAULT_URL_ENCODING)));
@@ -72,16 +72,16 @@ public class EncodeUtils {
 //		return Base64.encodeBase64URLSafe(input);
 //	}
 
-    /**
-     * Base64解码.
-     */
+//    /**
+//     * Base64 decode.
+//     */
     public static byte[] decodeBase64(String input) {
         return Base64.decodeBase64(input.getBytes());
     }
 
-    /**
-     * Base64解码.
-     */
+//    /**
+//     * Base64 decode.
+//     */
     public static String decodeBase64String(String input) {
         try {
             return new String(Base64.decodeBase64(input.getBytes()), DEFAULT_URL_ENCODING);
@@ -90,9 +90,9 @@ public class EncodeUtils {
         }
     }
 
-    /**
-     * Base62编码。
-     */
+//    /**
+//     * Base62 encode。
+//     */
     public static String encodeBase62(byte[] input) {
         char[] chars = new char[input.length];
         for (int i = 0; i < input.length; i++) {
@@ -101,44 +101,44 @@ public class EncodeUtils {
         return new String(chars);
     }
 
-    /**
-     * Html 转码.
-     */
+//    /**
+//     * Html encode.
+//     */
     public static String encodeHtml(String html) {
         return StringEscapeUtils.escapeHtml4(html);
     }
 
-    /**
-     * Html 解码.
-     */
+//    /**
+//     * Html decode.
+//     */
     public static String decodeHtml(String htmlEscaped) {
         return StringEscapeUtils.unescapeHtml4(htmlEscaped);
     }
 
-    /**
-     * Xml 转码.
-     */
+//    /**
+//     * Xml encode.
+//     */
     public static String encodeXml(String xml) {
         return StringEscapeUtils.escapeXml10(xml);
     }
 
-    /**
-     * Xml 解码.
-     */
+//    /**
+//     * Xml decode.
+//     */
     public static String decodeXml(String xmlEscaped) {
         return StringEscapeUtils.unescapeXml(xmlEscaped);
     }
 
-    /**
-     * URL 编码, Encode默认为UTF-8.
-     */
+//    /**
+//     * URL encode, Encode default UTF-8.
+//     */
     public static String encodeUrl(String part) {
         return encodeUrl(part, DEFAULT_URL_ENCODING);
     }
 
-    /**
-     * URL 编码, Encode默认为UTF-8.
-     */
+//    /**
+//     * URL encode, Encode default UTF-8.
+//     */
     public static String encodeUrl(String part, String encoding) {
         if (part == null) {
             return null;
@@ -152,16 +152,16 @@ public class EncodeUtils {
         return null;
     }
 
-    /**
-     * URL 解码, Encode默认为UTF-8.
-     */
+//    /**
+//     * URL decode, Encode default UTF-8.
+//     */
     public static String decodeUrl(String part) {
         return decodeUrl(part, DEFAULT_URL_ENCODING);
     }
 
-    /**
-     * URL 解码, Encode默认为UTF-8.
-     */
+//    /**
+//     * URL decode, EEncode default UTF-8.
+//     */
     public static String decodeUrl(String part, String encoding) {
         if (part == null) {
             return null;
@@ -174,14 +174,14 @@ public class EncodeUtils {
         return null;
     }
 
-    /**
-     * URL 解码（两次）, Encode默认为UTF-8.
-     */
+//    /**
+//     * URL decode（twice）, Encode default UTF-8.
+//     */
     public static String decodeUrl2(String part) {
         return decodeUrl(decodeUrl(part));
     }
 
-    // 预编译XSS过滤正则表达式
+    // Precompiled XSS filtered regular expressions
     private static List<Pattern> xssPatterns = ListUtils.newArrayList(
             Pattern.compile("(<\\s*(script|link|style|iframe)([\\s\\S]*?)(>|<\\/\\s*\\1\\s*>))|(</\\s*(script|link|style|iframe)\\s*>)", Pattern.CASE_INSENSITIVE),
             Pattern.compile("\\s*(href|src)\\s*=\\s*(\"\\s*(javascript|vbscript):[^\"]+\"|'\\s*(javascript|vbscript):[^']+'|(javascript|vbscript):[^\\s]+)\\s*(?=>)", Pattern.CASE_INSENSITIVE),
@@ -189,10 +189,9 @@ public class EncodeUtils {
             Pattern.compile("(eval\\((.*?)\\)|xpression\\((.*?)\\))", Pattern.CASE_INSENSITIVE)
     );
 
-    /**
-     * XSS 非法字符过滤，内容以<!--HTML-->开头的用以下规则（保留标签）
-     * @author ThinkGem
-     */
+//    /**
+//     * XSS Illegal character filtering, the content that starts with <!-HTML-> uses the following rules (reserved tags)
+//     */
     public static String xssFilter(String text) {
         String oriValue = StringUtils.trim(text);
         if (text != null) {
@@ -203,7 +202,7 @@ public class EncodeUtils {
                     value = matcher.replaceAll(StringUtils.EMPTY);
                 }
             }
-            // 如果开始不是HTML，XML，JOSN格式，则再进行HTML的 "、<、> 转码。
+            // If the format is not HTML, XML, or JOSN, then HTML, ", <,> transcoding is performed.
             if (!StringUtils.startsWithIgnoreCase(value, "<!--HTML-->")    // HTML
                     && !StringUtils.startsWithIgnoreCase(value, "<?xml ")    // XML
                     && !StringUtils.contains(value, "id=\"FormHtml\"")        // JFlow
@@ -247,13 +246,13 @@ public class EncodeUtils {
         return null;
     }
 
-    // 预编译SQL过滤正则表达式
+    // Precompiled SQL filtering regular expressions
     private static Pattern sqlPattern = Pattern.compile("(?:')|(?:--)|(/\\*(?:.|[\\n\\r])*?\\*/)|(\\b(select|update|and|or|delete|insert|trancate|char|into|substr|ascii|declare|exec|count|master|into|drop|execute)\\b)", Pattern.CASE_INSENSITIVE);
 
-    /**
-     * SQL过滤，防止注入，传入参数输入有select相关代码，替换空。
-     * @author ThinkGem
-     */
+//    /**
+//     * SQL filtering to prevent injection, select related code for incoming parameter input, replace empty.
+//     * @author ThinkGem
+//     */
     public static String sqlFilter(String text) {
         if (text != null) {
             String value = text;

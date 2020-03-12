@@ -15,11 +15,11 @@ import javax.servlet.http.HttpServletRequest;
  *******************************************************/
 public class IpUtils {
 
-	/**
-	 * 获取客户端IP地址
-	 * @param request
-	 * @return
-	 */
+//	/**
+//	 * 获取客户端IP地址
+//	 * @param request
+//	 * @return
+//	 */
 	public static String getRemoteAddr(HttpServletRequest request) {
 		if (request == null) {
 			return "unknown";
@@ -43,26 +43,26 @@ public class IpUtils {
 		return ip;
 	}
 	
-	/**
-	 * 是否是本地地址
-	 * @param ip
-	 * @return
-	 */
+//	/**
+//	 * 是否是本地地址
+//	 * @param ip
+//	 * @return
+//	 */
 	public static boolean isLocalAddr(String ip){
 		return StringUtils.inString(ip, "127.0.0.1", "0:0:0:0:0:0:0:1");
 	}
 
-	/**
-	 * 判断IP地址为内网IP还是公网IP
-	 * 
-	 * tcp/ip协议中，专门保留了三个IP地址区域作为私有地址，其地址范围如下：
-	 * 10.0.0.0/8：10.0.0.0～10.255.255.255
-	 * 172.16.0.0/12：172.16.0.0～172.31.255.255
-	 * 192.168.0.0/16：192.168.0.0～192.168.255.255
-	 * 
-	 * @param ip
-	 * @return
-	 */
+//	/**
+//	 * 判断IP地址为内网IP还是公网IP
+//	 *
+//	 * tcp/ip协议中，专门保留了三个IP地址区域作为私有地址，其地址范围如下：
+//	 * 10.0.0.0/8：10.0.0.0～10.255.255.255
+//	 * 172.16.0.0/12：172.16.0.0～172.31.255.255
+//	 * 192.168.0.0/16：192.168.0.0～192.168.255.255
+//	 *
+//	 * @param ip
+//	 * @return
+//	 */
 	public static boolean isInternalAddr(String ip) {
 
 		if (isLocalAddr(ip)){

@@ -75,29 +75,29 @@ public class NumberUtils extends org.apache.commons.lang3.math.NumberUtils {
 		return b1.divide(b2, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
 	}
 
-	/**
-	 * 格式化双精度，保留两个小数
-	 * @return
-	 */
+//	/**
+//	 * 格式化双精度，保留两个小数
+//	 * @return
+//	 */
 	public static String formatDouble(Double b) {
 		BigDecimal bg = new BigDecimal(b);
 		return bg.setScale(2, BigDecimal.ROUND_HALF_UP).toString();
 	}
 
-	/**
-	 * 百分比计算
-	 * @return
-	 */
+//	/**
+//	 * 百分比计算
+//	 * @return
+//	 */
 	public static String formatScale(double one, long total) {
 		BigDecimal bg = new BigDecimal(one * 100 / total);
 		return bg.setScale(0, BigDecimal.ROUND_HALF_UP).toString();
 	}
 	
-	/**
-	 * 格式化数值类型
-	 * @param data
-	 * @param pattern
-	 */
+//	/**
+//	 * 格式化数值类型
+//	 * @param data
+//	 * @param pattern
+//	 */
 	public static String formatNumber(Object data, String pattern) {
 		DecimalFormat df = null;
 		if (pattern == null) {

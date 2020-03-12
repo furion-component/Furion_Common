@@ -405,10 +405,10 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 
 	}
 
-	/**
-	 * 写入文件
-	 * @param file 要写入的文件
-	 */
+//	/**
+//	 * 写入文件
+//	 * @param file 要写入的文件
+//	 */
 	public static void writeToFile(String fileName, String content, boolean append) {
 		try {
 			FileUtils.write(new File(fileName), content, "utf-8", append);
@@ -418,10 +418,10 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		}
 	}
 
-	/**
-	 * 写入文件
-	 * @param file 要写入的文件
-	 */
+//	/**
+//	 * 写入文件
+//	 * @param file 要写入的文件
+//	 */
 	public static void writeToFile(String fileName, String content, String encoding, boolean append) {
 		try {
 			FileUtils.write(new File(fileName), content, encoding, append);
@@ -431,11 +431,11 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		}
 	}
 	
-	/**
-	 * 根据图片Base64写入图片文件
-	 * @param fileName 写入的文件路径及文件名
-	 * @param imageBase64 图片Base64字符串
-	 */
+//	/**
+//	 * 根据图片Base64写入图片文件
+//	 * @param fileName 写入的文件路径及文件名
+//	 * @param imageBase64 图片Base64字符串
+//	 */
 	public static void writeToFileByImageBase64(String fileName, String imageBase64){
 		String base64 = StringUtils.substringAfter(imageBase64, "base64,");
 		if (StringUtils.isBlank(base64)){
@@ -494,11 +494,11 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 
 	}
 
-	/**
-	 * 解压缩ZIP文件，将ZIP文件里的内容解压到descFileName目录下
-	 * @param zipFileName 需要解压的ZIP文件
-	 * @param descFileName 目标文件
-	 */
+//	/**
+//	 * 解压缩ZIP文件，将ZIP文件里的内容解压到descFileName目录下
+//	 * @param zipFileName 需要解压的ZIP文件
+//	 * @param descFileName 目标文件
+//	 */
 	public static boolean unZipFiles(String zipFileName, String descFileName) {
 		String descFileNames = descFileName;
 		if (!descFileNames.endsWith(File.separator)) {
@@ -620,7 +620,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 
 	/**
 	 * 获取待压缩文件在ZIP文件中entry的名字，即相对于跟目录的相对路径名
-	 * @param dirPat 目录名
+	 * @param dirPath 目录名
 	 * @param file entry文件名
 	 * @return
 	 */
@@ -639,10 +639,10 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		return filePath.substring(index + dirPaths.length());
 	}
 
-	/**
-	 * 根据文件名的后缀获取文件内容类型
-	 * @return 返回文件类型
-	 */
+//	/**
+//	 * 根据文件名的后缀获取文件内容类型
+//	 * @return 返回文件类型
+//	 */
 	public static String getContentType(String fileName) {
 		if (mimetypesFileTypeMap == null){
 			mimetypesFileTypeMap = new MimetypesFileTypeMap();
@@ -650,10 +650,10 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		return mimetypesFileTypeMap.getContentType(fileName);
 	}
 	
-	/**
-	 * 根据文件内容获取实际的内容类型
-	 * @return 返回文件类型
-	 */
+//	/**
+//	 * 根据文件内容获取实际的内容类型
+//	 * @return 返回文件类型
+//	 */
 	public static String getRealContentType(File file){
 		try {
 			MagicMatch match = Magic.getMagicMatch(file, false, true);
@@ -855,19 +855,19 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		return files;
 	}
 
-	/**
-	 * 获取文件名(带扩展名)
-	 * @param pathname 文件路径名
-	 */
+//	/**
+//	 * 获取文件名(带扩展名)
+//	 * @param fileName 文件路径名
+//	 */
 	public static String getFileName(String fileName) {
         return new File(fileName).getName();
 	}
 
-	/**
-	 * 获取文件名，不包含扩展名
-	 * @param fileName 文件名
-	 * @return 例如：d:\files\test.jpg  返回：d:\files\test
-	 */
+//	/**
+//	 * 获取文件名，不包含扩展名
+//	 * @param fileName 文件名
+//	 * @return 例如：d:\files\test.jpg  返回：d:\files\test
+//	 */
 	public static String getFileNameWithoutExtension(String fileName) {
 		if ((fileName == null) || (fileName.lastIndexOf(".") == -1)) {
 			return null;
@@ -875,11 +875,11 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		return fileName.substring(0, fileName.lastIndexOf("."));
 	}
 
-	/**
-	 * 获取文件扩展名(返回小写)
-	 * @param pathname 文件名
-	 * @return 例如：test.jpg  返回：  jpg
-	 */
+//	/**
+//	 * 获取文件扩展名(返回小写)
+//	 * @param pathname 文件名
+//	 * @return 例如：test.jpg  返回：  jpg
+//	 */
 	public static String getFileExtension(String fileName) {
 		if ((fileName == null) || (fileName.lastIndexOf(".") == -1) 
 				|| (fileName.lastIndexOf(".") == fileName.length() - 1)) {
@@ -888,12 +888,12 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		return StringUtils.lowerCase(fileName.substring(fileName.lastIndexOf(".") + 1));
 	}
 	
-	/**
-	 * 根据图片Base64获取文件扩展名
-	 * @param imageBase64
-	 * @return
-	 * @author ThinkGem
-	 */
+//	/**
+//	 * 根据图片Base64获取文件扩展名
+//	 * @param imageBase64
+//	 * @return
+//	 * @author ThinkGem
+//	 */
 	public static String getFileExtensionByImageBase64(String imageBase64){
 		String extension = null;
 		String type = StringUtils.substringBetween(imageBase64, "data:", ";base64,");
@@ -907,10 +907,10 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		return extension;
 	}
 	
-    /**
-     * 获取工程源文件所在路径
-     * @return
-     */
+//    /**
+//     * 获取工程源文件所在路径
+//     * @return
+//     */
     public static String getProjectPath(){
 		String projectPath = "";
 		try {
@@ -945,10 +945,10 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		return projectPath;
     }
     
-    /**
-     * 获取工程源文件所在路径
-     * @return
-     */
+//    /**
+//     * 获取工程源文件所在路径
+//     * @return
+//     */
     public static String getWebappPath(){
     	String webappPath = "";
 		try {

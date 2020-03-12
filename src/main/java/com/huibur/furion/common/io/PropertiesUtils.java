@@ -92,16 +92,16 @@ public class PropertiesUtils {
 		}
 	}
 
-	/**
-	 * 当前类实例
-	 */
+//	/**
+//	 * 当前类实例
+//	 */
 	public static PropertiesUtils getInstance(){
 		return PropertiesLoaderHolder.INSTANCE;
 	}
 
-	/**
-	 * 载入多个文件，路径使用Spring Resource格式，相同的属性在最后载入的文件中的值将会覆盖之前的值。
-	 */
+//	/**
+//	 * 载入多个文件，路径使用Spring Resource格式，相同的属性在最后载入的文件中的值将会覆盖之前的值。
+//	 */
 	public PropertiesUtils(String... configFiles) {
 		for (String location : configFiles) {
 			try {
@@ -131,16 +131,16 @@ public class PropertiesUtils {
 		}
 	}
 	
-	/**
-	 * 获取当前加载的属性文件
-	 */
+//	/**
+//	 * 获取当前加载的属性文件
+//	 */
 	public Set<String> getConfigSet() {
 		return configSet;
 	}
 	
-	/**
-	 * 获取当前加载的属性数据
-	 */
+//	/**
+//	 * 获取当前加载的属性数据
+//	 */
 	public Properties getProperties() {
 		return properties;
 	}
@@ -154,9 +154,9 @@ public class PropertiesUtils {
 		PropertiesLoaderHolder.releadInstance();
 	}
 
-	/**
-	 * 获取属性值，取不到从System.getProperty()获取，都取不到返回null
-	 */
+//	/**
+//	 * 获取属性值，取不到从System.getProperty()获取，都取不到返回null
+//	 */
 	public String getProperty(String key) {
 		if (environment != null){
 			String value = environment.getProperty(key);
@@ -182,18 +182,18 @@ public class PropertiesUtils {
 		return null;
 	}
 
-	/**
-	 * 取出String类型的Property，但以System的Property优先，如果都为null则返回defaultValue值
-	 */
+//	/**
+//	 * 取出String类型的Property，但以System的Property优先，如果都为null则返回defaultValue值
+//	 */
 	public String getProperty(String key, String defaultValue) {
 		String value = getProperty(key);
 		return value != null ? value : defaultValue;
 	}
 	
-	/**
-	 * 设置环境属性
-	 * @param environment
-	 */
+//	/**
+//	 * 设置环境属性
+//	 * @param environment
+//	 */
 	public static void setEnvironment(Environment environment) {
 		PropertiesUtils.environment = environment;
 	}

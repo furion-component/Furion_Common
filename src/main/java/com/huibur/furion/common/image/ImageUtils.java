@@ -25,9 +25,9 @@ public class ImageUtils {
 
 //	private static Logger logger = LoggerFactory.getLogger(ImageUtils.class);
 	
-	/**
-	 * 缩略图生成，处理一些较大的图片，防止占用太多的网络资源
-	 */
+//	/**
+//	 * 缩略图生成，处理一些较大的图片，防止占用太多的网络资源
+//	 */
 	public static void thumbnails(File imageFile, int maxWidth, int maxHeight, String outputFormat){
 		if (imageFile == null || !imageFile.exists() || (maxWidth <= 0 && maxHeight <= 0)){
 			return;

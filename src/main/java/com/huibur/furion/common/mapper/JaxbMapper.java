@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentMap;
 /*******************************************************
  * Copyright(c)2019-2019 HuiBur. All rights reserved.
  * Header: JaxbMapper.java
- * Discussion: 使用Jaxb2.0实现XML<->Java Object的Mapper.
+ * Discussion: 使用Jaxb2.0实现XML Java Object的Mapper.
  * Create Date：2019/6/6
  * Author: Jerry Wen
  * Version: 1.0
@@ -26,25 +26,25 @@ public class JaxbMapper {
 
 	private static ConcurrentMap<Class, JAXBContext> jaxbContexts = new ConcurrentHashMap<Class, JAXBContext>();
 
-	/**
-	 * Java Object->Xml without encoding.
-	 */
+//	/**
+//	 * Java Object->Xml without encoding.
+//	 */
 	public static String toXml(Object root) {
 		Class clazz = ReflectUtils.getUserClass(root);
 		return toXml(root, clazz, null);
 	}
 
-	/**
-	 * Java Object->Xml with encoding.
-	 */
+//	/**
+//	 * Java Object->Xml with encoding.
+//	 */
 	public static String toXml(Object root, String encoding) {
 		Class clazz = ReflectUtils.getUserClass(root);
 		return toXml(root, clazz, encoding);
 	}
 
-	/**
-	 * Java Object->Xml with encoding.
-	 */
+//	/**
+//	 * Java Object->Xml with encoding.
+//	 */
 	public static String toXml(Object root, Class clazz, String encoding) {
 		try {
 			StringWriter writer = new StringWriter();
@@ -55,16 +55,14 @@ public class JaxbMapper {
 		}
 	}
 
-	/**
-	 * Java Collection->Xml without encoding, 特别支持Root Element是Collection的情形.
-	 */
+//	/**
+//	 * Java Collection->Xml without encoding, 特别支持Root Element是Collection的情形.
+//	 */
 	public static String toXml(Collection<?> root, String rootName, Class clazz) {
 		return toXml(root, rootName, clazz, null);
 	}
 
-	/**
-	 * Java Collection->Xml with encoding, 特别支持Root Element是Collection的情形.
-	 */
+
 	public static String toXml(Collection<?> root, String rootName, Class clazz, String encoding) {
 		try {
 			CollectionWrapper wrapper = new CollectionWrapper();
@@ -82,9 +80,9 @@ public class JaxbMapper {
 		}
 	}
 
-	/**
-	 * Xml->Java Object.
-	 */
+//	/**
+//	 * Xml->Java Object.
+//	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T fromXml(String xml, Class<T> clazz) {
 		try {
@@ -95,10 +93,10 @@ public class JaxbMapper {
 		}
 	}
 
-	/**
-	 * 创建Marshaller并设定encoding(可为null).
-	 * 线程不安全，需要每次创建或pooling。
-	 */
+//	/**
+//	 * 创建Marshaller并设定encoding(可为null).
+//	 * 线程不安全，需要每次创建或pooling。
+//	 */
 	public static Marshaller createMarshaller(Class clazz, String encoding) {
 		try {
 			JAXBContext jaxbContext = getJaxbContext(clazz);
@@ -117,10 +115,10 @@ public class JaxbMapper {
 		}
 	}
 
-	/**
-	 * 创建UnMarshaller.
-	 * 线程不安全，需要每次创建或pooling。
-	 */
+//	/**
+//	 * 创建UnMarshaller.
+//	 * 线程不安全，需要每次创建或pooling。
+//	 */
 	public static Unmarshaller createUnmarshaller(Class clazz) {
 		try {
 			JAXBContext jaxbContext = getJaxbContext(clazz);

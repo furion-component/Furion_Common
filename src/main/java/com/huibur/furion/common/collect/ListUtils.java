@@ -96,12 +96,12 @@ public class ListUtils extends org.apache.commons.collections.ListUtils {
 		return addAll(addTo, elementsToAdd.iterator());
 	}
 	
-	/**
-	 * 提取集合中的对象的两个属性(通过Getter函数), 组合成Map.
-	 * @param collection 来源集合.
-	 * @param keyPropertyName 要提取为Map中的Key值的属性名.
-	 * @param valuePropertyName 要提取为Map中的Value值的属性名.
-	 */
+//	/**
+//	 * 提取集合中的对象的两个属性(通过Getter函数), 组合成Map.
+//	 * @param collection 来源集合.
+//	 * @param keyPropertyName 要提取为Map中的Key值的属性名.
+//	 * @param valuePropertyName 要提取为Map中的Value值的属性名.
+//	 */
 	@SuppressWarnings("unchecked")
 	public static Map extractToMap(final Collection collection, final String keyPropertyName,
 			final String valuePropertyName) {
@@ -117,11 +117,11 @@ public class ListUtils extends org.apache.commons.collections.ListUtils {
 		return map;
 	}
 
-	/**
-	 * 提取集合中的对象的一个属性(通过Getter函数), 组合成List.
-	 * @param collection 来源集合.
-	 * @param propertyName 要提取的属性名.
-	 */
+//	/**
+//	 * 提取集合中的对象的一个属性(通过Getter函数), 组合成List.
+//	 * @param collection 来源集合.
+//	 * @param propertyName 要提取的属性名.
+//	 */
 	@SuppressWarnings("unchecked")
 	public static <T> List<T> extractToList(final Collection collection, final String propertyName) {
 		if (collection == null){
@@ -138,13 +138,13 @@ public class ListUtils extends org.apache.commons.collections.ListUtils {
 		return list;
 	}
 
-	/**
-	 * 提取集合中的对象的一个属性(通过Getter函数), 组合成List.
-	 * @param collection 来源集合.
-	 * @param propertyName 要提取的属性名.
-	 * @param prefix 符合前缀的信息(为空则忽略前缀)
-	 * @param isNotBlank 仅包含不为空值(空字符串也排除)
-	 */
+//	/**
+//	 * 提取集合中的对象的一个属性(通过Getter函数), 组合成List.
+//	 * @param collection 来源集合.
+//	 * @param propertyName 要提取的属性名.
+//	 * @param prefix 符合前缀的信息(为空则忽略前缀)
+//	 * @param isNotBlank 仅包含不为空值(空字符串也排除)
+//	 */
 	public static List<String> extractToList(final Collection collection, final String propertyName, 
 			final String prefix, final boolean isNotBlank) {
 		List<String> list = new ArrayList<String>(collection.size());
@@ -167,28 +167,28 @@ public class ListUtils extends org.apache.commons.collections.ListUtils {
 		return list;
 	}
 
-	/**
-	 * 提取集合中的对象的一个属性(通过Getter函数), 组合成由分割符分隔的字符串.
-	 * 
-	 * @param collection 来源集合.
-	 * @param propertyName 要提取的属性名.
-	 * @param separator 分隔符.
-	 */
+//	/**
+//	 * 提取集合中的对象的一个属性(通过Getter函数), 组合成由分割符分隔的字符串.
+//	 *
+//	 * @param collection 来源集合.
+//	 * @param propertyName 要提取的属性名.
+//	 * @param separator 分隔符.
+//	 */
 	public static String extractToString(final Collection collection, final String propertyName, final String separator) {
 		List list = extractToList(collection, propertyName);
 		return StringUtils.join(list, separator);
 	}
 
-	/**
-	 * 转换Collection所有元素(通过toString())为String, 中间以 separator分隔。
-	 */
+//	/**
+//	 * 转换Collection所有元素(通过toString())为String, 中间以 separator分隔。
+//	 */
 	public static String convertToString(final Collection collection, final String separator) {
 		return StringUtils.join(collection, separator);
 	}
 
-	/**
-	 * 转换Collection所有元素(通过toString())为String, 每个元素的前面加入prefix，后面加入postfix，如<div>mymessage</div>。
-	 */
+//	/**
+//	 * 转换Collection所有元素(通过toString())为String, 每个元素的前面加入prefix，后面加入postfix，如<div>mymessage</div>。
+//	 */
 	public static String convertToString(final Collection collection, final String prefix, final String postfix) {
 		StringBuilder builder = new StringBuilder();
 		for (Object o : collection) {
@@ -197,23 +197,23 @@ public class ListUtils extends org.apache.commons.collections.ListUtils {
 		return builder.toString();
 	}
 
-	/**
-	 * 判断是否为空.
-	 */
+//	/**
+//	 * 判断是否为空.
+//	 */
 	public static boolean isEmpty(Collection collection) {
 		return (collection == null || collection.isEmpty());
 	}
 
-	/**
-	 * 判断是否为不为空.
-	 */
+//	/**
+//	 * 判断是否为不为空.
+//	 */
 	public static boolean isNotEmpty(Collection collection) {
 		return !(isEmpty(collection));
 	}
 
-	/**
-	 * 取得Collection的第一个元素，如果collection为空返回null.
-	 */
+//	/**
+//	 * 取得Collection的第一个元素，如果collection为空返回null.
+//	 */
 	public static <T> T getFirst(Collection<T> collection) {
 		if (isEmpty(collection)) {
 			return null;
@@ -221,9 +221,9 @@ public class ListUtils extends org.apache.commons.collections.ListUtils {
 		return collection.iterator().next();
 	}
 
-	/**
-	 * 获取Collection的最后一个元素 ，如果collection为空返回null.
-	 */
+//	/**
+//	 * 获取Collection的最后一个元素 ，如果collection为空返回null.
+//	 */
 	public static <T> T getLast(Collection<T> collection) {
 		if (isEmpty(collection)) {
 			return null;
@@ -243,18 +243,18 @@ public class ListUtils extends org.apache.commons.collections.ListUtils {
 		}
 	}
 
-	/**
-	 * 返回a+b的新List.
-	 */
+//	/**
+//	 * 返回a+b的新List.
+//	 */
 	public static <T> List<T> union(final Collection<T> a, final Collection<T> b) {
 		List<T> result = new ArrayList<T>(a);
 		result.addAll(b);
 		return result;
 	}
 
-	/**
-	 * 返回a-b的新List.
-	 */
+//	/**
+//	 * 返回a-b的新List.
+//	 */
 	public static <T> List<T> subtract(final Collection<T> a, final Collection<T> b) {
 		List<T> list = new ArrayList<T>(a);
 		for (T element : b) {
@@ -263,9 +263,9 @@ public class ListUtils extends org.apache.commons.collections.ListUtils {
 		return list;
 	}
 
-	/**
-	 * 返回a与b的交集的新List.
-	 */
+//	/**
+//	 * 返回a与b的交集的新List.
+//	 */
 	public static <T> List<T> intersection(Collection<T> a, Collection<T> b) {
 		List<T> list = new ArrayList<T>();
 		for (T element : a) {
@@ -304,13 +304,13 @@ public class ListUtils extends org.apache.commons.collections.ListUtils {
 //		return list;
 //	}
 	
-	/**
-	 * 列表分页方法
-	 * @param list 数据源
-	 * @param pageSize 每页大小
-	 * @param pageCallback 分页回调，返回当前页的数据及分页信息（pageList, pageNo, pageSize）
-	 * @author ThinkGem
-	 */
+//	/**
+//	 * 列表分页方法
+//	 * @param list 数据源
+//	 * @param pageSize 每页大小
+//	 * @param pageCallback 分页回调，返回当前页的数据及分页信息（pageList, pageNo, pageSize）
+//	 * @author ThinkGem
+//	 */
 	public static <T> void pageList(List<T> list, int pageSize, MethodCallback pageCallback){
 		if (list != null && list.size() > 0){
 
@@ -336,14 +336,14 @@ public class ListUtils extends org.apache.commons.collections.ListUtils {
 		}
 	}
 	
-	/**
-	 * 列表分页方法
-	 * @param list 源数据
-	 * @param pageNo 当前页码
-	 * @param pageSize 每页显示条数
-	 * @param totalPage 总页码数
-	 * @author ThinkGem
-	 */
+//	/**
+//	 * 列表分页方法
+//	 * @param list 源数据
+//	 * @param pageNo 当前页码
+//	 * @param pageSize 每页显示条数
+//	 * @param totalPage 总页码数
+//	 * @author ThinkGem
+//	 */
 	public static <T> List<T> getPageList(List<T> list, int pageNo, int pageSize, int totalPage) {
 		int fromIndex = 0; // 从哪里开始截取
 		int toIndex = 0; // 截取几个
@@ -362,12 +362,12 @@ public class ListUtils extends org.apache.commons.collections.ListUtils {
 		return list.subList(fromIndex, toIndex);
 	}
 	
-	/**
-	 * 本地列表排序
-	 * @param list 需要排序的列表
-	 * @param orderBy 排序的键值（如：id desc）
-	 * @author ThinkGem
-	 */
+//	/**
+//	 * 本地列表排序
+//	 * @param list 需要排序的列表
+//	 * @param orderBy 排序的键值（如：id desc）
+//	 * @author ThinkGem
+//	 */
 	public static <T> List<T> listOrderBy(List<T> list, String orderBy){
 		if (list != null && StringUtils.isNotBlank(orderBy)){
 			final String[] ss = orderBy.trim().split(" ");

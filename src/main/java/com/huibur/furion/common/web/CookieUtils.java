@@ -15,44 +15,44 @@ import java.net.URLEncoder;
  */
 public class CookieUtils {
 
-	/**
-	 * 设置 Cookie（生成时间为1天）
-	 * @param name 名称
-	 * @param value 值
-	 */
+//	/**
+//	 * 设置 Cookie（生成时间为1天）
+//	 * @param name 名称
+//	 * @param value 值
+//	 */
 	public static void setCookie(HttpServletResponse response, String name, String value) {
 		setCookie(response, name, value, 60*60*24);
 	}
 	
-	/**
-	 * 设置 Cookie
-	 * @param name 名称
-	 * @param value 值
-	 * @param maxAge 生存时间（单位秒）
-	 * @param uri 路径
-	 */
+//	/**
+//	 * 设置 Cookie
+//	 * @param name 名称
+//	 * @param value 值
+//	 * @param maxAge 生存时间（单位秒）
+//	 * @param uri 路径
+//	 */
 	public static void setCookie(HttpServletResponse response, String name, String value, String path) {
 		setCookie(response, name, value, path, 60*60*24);
 	}
 	
-	/**
-	 * 设置 Cookie
-	 * @param name 名称
-	 * @param value 值
-	 * @param maxAge 生存时间（单位秒）
-	 * @param uri 路径
-	 */
+//	/**
+//	 * 设置 Cookie
+//	 * @param name 名称
+//	 * @param value 值
+//	 * @param maxAge 生存时间（单位秒）
+//	 * @param uri 路径
+//	 */
 	public static void setCookie(HttpServletResponse response, String name, String value, int maxAge) {
 		setCookie(response, name, value, "/", maxAge);
 	}
 	
-	/**
-	 * 设置 Cookie
-	 * @param name 名称
-	 * @param value 值
-	 * @param maxAge 生存时间（单位秒）
-	 * @param uri 路径
-	 */
+//	/**
+//	 * 设置 Cookie
+//	 * @param name 名称
+//	 * @param value 值
+//	 * @param maxAge 生存时间（单位秒）
+//	 * @param uri 路径
+//	 */
 	public static void setCookie(HttpServletResponse response, String name, String value, String path, int maxAge) {
 		if (StringUtils.isNotBlank(name)){
 			Cookie cookie = new Cookie(name, null);
@@ -67,44 +67,44 @@ public class CookieUtils {
 		}
 	}
 	
-	/**
-	 * 获得指定Cookie的值
-	 * @param name 名称
-	 * @return 值
-	 */
+//	/**
+//	 * 获得指定Cookie的值
+//	 * @param name 名称
+//	 * @return 值
+//	 */
 	public static String getCookie(HttpServletRequest request, String name) {
 		return getCookie(request, null, name, false);
 	}
 	
-	/**
-	 * 获得指定Cookie的值，并删除。
-	 * @param name 名称
-	 * @return 值
-	 */
+//	/**
+//	 * 获得指定Cookie的值，并删除。
+//	 * @param name 名称
+//	 * @return 值
+//	 */
 	public static String getCookie(HttpServletRequest request, HttpServletResponse response, String name) {
 		return getCookie(request, response, name, false);
 	}
 
-	/**
-	 * 获得指定Cookie的值
-	 * @param request 请求对象
-	 * @param response 响应对象
-	 * @param name 名字
-	 * @param isRemove 是否移除
-	 * @return 值
-	 */
+//	/**
+//	 * 获得指定Cookie的值
+//	 * @param request 请求对象
+//	 * @param response 响应对象
+//	 * @param name 名字
+//	 * @param isRemove 是否移除
+//	 * @return 值
+//	 */
 	public static String getCookie(HttpServletRequest request, HttpServletResponse response, String name, boolean isRemove) {
 		return getCookie(request, response, name, "/", false);
 	}
 
-	/**
-	 * 获得指定Cookie的值
-	 * @param request 请求对象
-	 * @param response 响应对象
-	 * @param name 名字
-	 * @param isRemove 是否移除
-	 * @return 值
-	 */
+//	/**
+//	 * 获得指定Cookie的值
+//	 * @param request 请求对象
+//	 * @param response 响应对象
+//	 * @param name 名字
+//	 * @param isRemove 是否移除
+//	 * @return 值
+//	 */
 	public static String getCookie(HttpServletRequest request, HttpServletResponse response, String name, String path, boolean isRemove) {
 		String value = null;
 		if (StringUtils.isNotBlank(name)){

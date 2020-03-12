@@ -11,13 +11,13 @@ public class EmailUtils {
 	
 	//private final static Logger logger = LoggerFactory.getLogger(EmailUtils.class);
 
-	/**
-	 * 发送邮件
-	 * @param toAddress 接收地址
-	 * @param subject 标题
-	 * @param content 内容
-	 * @return
-	 */
+//	/**
+//	 * 发送邮件
+//	 * @param toAddress 接收地址
+//	 * @param subject 标题
+//	 * @param content 内容
+//	 * @return
+//	 */
 	public static boolean send(String toAddress, String subject, String content) {
 		PropertiesUtils props = PropertiesUtils.getInstance();
 		String fromAddress = props.getProperty("msg.email.fromAddress");
@@ -28,13 +28,13 @@ public class EmailUtils {
 		return send(fromAddress, fromPassword, fromHostName, sslOnConnect, sslSmtpPort, toAddress, subject, content);
 	}
 	
-	/**
-	 * 发送邮件
-	 * @param toAddress 接收地址
-	 * @param subject 标题
-	 * @param content 内容
-	 * @return
-	 */
+//	/**
+//	 * 发送邮件
+//	 * @param toAddress 接收地址
+//	 * @param subject 标题
+//	 * @param content 内容
+//	 * @return
+//	 */
 	public static boolean send(String fromAddress, String fromPassword, String fromHostName,
 			String sslOnConnect, String sslSmtpPort, String toAddress, String subject, String content) {
 		try {

@@ -9,11 +9,11 @@ public class SmsUtils {
 
 	//private final static Logger logger = LoggerFactory.getLogger(SmsUtils.class);
 	
-	/**
-	 * 模拟发送短信
-	 * @param content 短信内容
-	 * @param mobile 接受手机号码
-	 */
+//	/**
+//	 * 模拟发送短信
+//	 * @param content 短信内容
+//	 * @param mobile 接受手机号码
+//	 */
 	public static String send(String content, String mobile) {
 //		PropertiesUtils props = PropertiesUtils.getInstance();
 //		String url = props.getProperty("msg.sms.url");

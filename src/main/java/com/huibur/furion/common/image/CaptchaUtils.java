@@ -126,13 +126,12 @@ public class CaptchaUtils {
         }
 	}
 
-	/**
-	 * 生成验证码
-	 * @param request
-	 * @param response
-	 * @throws IOException
-	 * @return 验证码字符
-	 */
+//	/**
+//	 * 生成验证码
+//	 * @param outputStream
+//	 * @throws IOException
+//	 * @return 验证码字符
+//	 */
 	public static String generateCaptcha(OutputStream outputStream) throws IOException{
 		
 		// 初始化设置

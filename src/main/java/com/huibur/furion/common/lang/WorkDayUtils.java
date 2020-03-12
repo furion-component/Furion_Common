@@ -8,12 +8,12 @@ import java.util.Calendar;
  */
 public class WorkDayUtils {
 
-	/**
-	 * 获取日期之间的天数
-	 * @param d1
-	 * @param d2
-	 * @return
-	 */
+//	/**
+//	 * 获取日期之间的天数
+//	 * @param d1
+//	 * @param d2
+//	 * @return
+//	 */
 	public int getDaysBetween(Calendar d1, Calendar d2) {
 		if (d1.after(d2)) { // swap dates so that d1 is start and d2 is end
 			Calendar swap = d1;
@@ -33,12 +33,12 @@ public class WorkDayUtils {
 		return days;
 	}
 
-	/**
-	 * 获取工作日
-	 * @param d1
-	 * @param d2
-	 * @return
-	 */
+//	/**
+//	 * 获取工作日
+//	 * @param d1
+//	 * @param d2
+//	 * @return
+//	 */
 	public int getWorkingDay(Calendar d1, Calendar d2) {
 		int result = -1;
 		if (d1.after(d2)) { // swap dates so that d1 is start and d2 is end
@@ -70,11 +70,11 @@ public class WorkDayUtils {
 		return result;
 	}
 
-	/**
-	 * 获取中文日期
-	 * @param date
-	 * @return
-	 */
+//	/**
+//	 * 获取中文日期
+//	 * @param date
+//	 * @return
+//	 */
 	public String getChineseWeek(Calendar date) {
 		final String dayNames[] = { "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六" };
 		int dayOfWeek = date.get(Calendar.DAY_OF_WEEK); 
@@ -82,11 +82,11 @@ public class WorkDayUtils {
 		return dayNames[dayOfWeek - 1];
 	}
 
-	/**
-	 * 获得日期的下一个星期一的日期
-	 * @param date
-	 * @return
-	 */
+//	/**
+//	 * 获得日期的下一个星期一的日期
+//	 * @param date
+//	 * @return
+//	 */
 	public Calendar getNextMonday(Calendar date) {
 		Calendar result = null;
 		result = date;
@@ -97,12 +97,12 @@ public class WorkDayUtils {
 		return result;
 	}
 
-	/**
-	 * 获取休息日
-	 * @param d1
-	 * @param d2
-	 * @return
-	 */
+//	/**
+//	 * 获取休息日
+//	 * @param d1
+//	 * @param d2
+//	 * @return
+//	 */
 	public int getHolidays(Calendar d1, Calendar d2) {
 		return this.getDaysBetween(d1, d2) - this.getWorkingDay(d1, d2);
 	}

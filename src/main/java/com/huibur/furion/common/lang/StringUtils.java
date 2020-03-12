@@ -23,11 +23,11 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     private static final char SEPARATOR = '_';
     private static final String CHARSET_NAME = "UTF-8";
     
-    /**
-     * 转换为字节数组
-     * @param str
-     * @return
-     */
+//    /**
+//     * 转换为字节数组
+//     * @param str
+//     * @return
+//     */
     public static byte[] getBytes(String str){
     	if (str != null){
     		try {
@@ -40,11 +40,11 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     	}
     }
     
-    /**
-     * 转换为字节数组
-     * @param str
-     * @return
-     */
+//    /**
+//     * 转换为字节数组
+//     * @param bytes
+//     * @return
+//     */
     public static String toString(byte[] bytes){
     	try {
 			return new String(bytes, CHARSET_NAME);
@@ -87,17 +87,17 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     	return false;
     }
     
-    /**
-     * 去除左右空格（包含中文空格）
-     * @param str
-     */
+//    /**
+//     * 去除左右空格（包含中文空格）
+//     * @param str
+//     */
     public static String trim2(final String str) {
         return str == null ? null : str.replaceAll("^[\\s|　| ]*|[\\s|　| ]*$", "");
     }
 	
-	/**
-	 * 替换掉HTML标签方法
-	 */
+//	/**
+//	 * 替换掉HTML标签方法
+//	 */
 	public static String stripHtml(String html) {
 		if (isBlank(html)){
 			return "";
@@ -110,11 +110,11 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 		return s;
 	}
 	
-	/**
-	 * 替换为手机识别的HTML，去掉样式及属性，保留回车。
-	 * @param html
-	 * @return
-	 */
+//	/**
+//	 * 替换为手机识别的HTML，去掉样式及属性，保留回车。
+//	 * @param html
+//	 * @return
+//	 */
 	public static String toMobileHtml(String html){
 		if (html == null){
 			return "";
@@ -122,11 +122,11 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 		return html.replaceAll("<([a-z]+?)\\s+?.*?>", "<$1>");
 	}
 	
-	/**
-	 * 对txt进行HTML编码，并将\n转换为&gt;br/&lt;、\t转换为&nbsp; &nbsp;
-	 * @param txt
-	 * @return
-	 */
+//	/**
+//	 * 对txt进行HTML编码，并将\n转换为&gt;br/&lt;、\t转换为&nbsp; &nbsp;
+//	 * @param txt
+//	 * @return
+//	 */
 	public static String toHtml(String txt){
 		if (txt == null){
 			return "";
@@ -134,12 +134,12 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 		return replace(replace(EncodeUtils.encodeHtml(trim(txt)), "\n", "<br/>"), "\t", "&nbsp; &nbsp; ");
 	}
 
-	/**
-	 * 缩略字符串（不区分中英文字符）
-	 * @param str 目标字符串
-	 * @param length 截取长度
-	 * @return
-	 */
+//	/**
+//	 * 缩略字符串（不区分中英文字符）
+//	 * @param str 目标字符串
+//	 * @param length 截取长度
+//	 * @return
+//	 */
 	public static String abbr(String str, int length) {
 		if (str == null) {
 			return "";
@@ -166,12 +166,12 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	// 缩略字符串替换Html正则表达式预编译
 	private static Pattern p1 = Pattern.compile("<([a-zA-Z]+)[^<>]*>");
 	
-	/**
-	 * 缩略字符串（适应于与HTML标签的）
-	 * @param param 目标字符串
-	 * @param length 截取长度
-	 * @return
-	 */
+//	/**
+//	 * 缩略字符串（适应于与HTML标签的）
+//	 * @param param 目标字符串
+//	 * @param length 截取长度
+//	 * @return
+//	 */
 	public static String htmlAbbr(String param, int length) {
 		if (param == null) {
 			return "";
@@ -232,27 +232,27 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 		return result.toString();
 	}
 	
-	/**
-	 * 首字母大写
-	 */
+//	/**
+//	 * 首字母大写
+//	 */
 	public static String cap(String str){
 		return capitalize(str);
 	}
 	
-	/**
-	 * 首字母小写
-	 */
+//	/**
+//	 * 首字母小写
+//	 */
 	public static String uncap(String str){
 		return uncapitalize(str);
 	}
 	
-	/**
-	 * 驼峰命名法工具
-	 * @return
-	 * 		camelCase("hello_world") == "helloWorld" 
-	 * 		capCamelCase("hello_world") == "HelloWorld"
-	 * 		uncamelCase("helloWorld") = "hello_world"
-	 */
+//	/**
+//	 * 驼峰命名法工具
+//	 * @return
+//	 * 		camelCase("hello_world") == "helloWorld"
+//	 * 		capCamelCase("hello_world") == "HelloWorld"
+//	 * 		uncamelCase("helloWorld") = "hello_world"
+//	 */
     public static String camelCase(String s) {
         if (s == null) {
             return null;
@@ -275,13 +275,13 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         return sb.toString();
     }
 
-    /**
-	 * 驼峰命名法工具
-	 * @return
-	 * 		camelCase("hello_world") == "helloWorld" 
-	 * 		capCamelCase("hello_world") == "HelloWorld"
-	 * 		uncamelCase("helloWorld") = "hello_world"
-	 */
+//    /**
+//	 * 驼峰命名法工具
+//	 * @return
+//	 * 		camelCase("hello_world") == "helloWorld"
+//	 * 		capCamelCase("hello_world") == "HelloWorld"
+//	 * 		uncamelCase("helloWorld") = "hello_world"
+//	 */
     public static String capCamelCase(String s) {
         if (s == null) {
             return null;
@@ -290,13 +290,13 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         return s.substring(0, 1).toUpperCase() + s.substring(1);
     }
     
-    /**
-	 * 驼峰命名法工具
-	 * @return
-	 * 		camelCase("hello_world") == "helloWorld" 
-	 * 		capCamelCase("hello_world") == "HelloWorld"
-	 * 		uncamelCase("helloWorld") = "hello_world"
-	 */
+//    /**
+//	 * 驼峰命名法工具
+//	 * @return
+//	 * 		camelCase("hello_world") == "helloWorld"
+//	 * 		capCamelCase("hello_world") == "HelloWorld"
+//	 * 		uncamelCase("helloWorld") = "hello_world"
+//	 */
     public static String uncamelCase(String s) {
         if (s == null) {
             return null;
@@ -322,12 +322,12 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         return sb.toString();
     }
     
-    /**
-     * 转换为JS获取对象值，生成三目运算返回结果
-     * @param objectString 对象串
-     *   例如：row.user.id
-     *   返回：!row?'':!row.user?'':!row.user.id?'':row.user.id
-     */
+//    /**
+//     * 转换为JS获取对象值，生成三目运算返回结果
+//     * @param objectString 对象串
+//     *   例如：row.user.id
+//     *   返回：!row?'':!row.user?'':!row.user.id?'':row.user.id
+//     */
     public static String jsGetVal(String objectString){
     	StringBuilder result = new StringBuilder();
     	StringBuilder val = new StringBuilder();
@@ -340,11 +340,11 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     	return result.toString();
     }
 
-	/**
-	 * 获取随机字符串
-	 * @param count
-	 * @return
-	 */
+//	/**
+//	 * 获取随机字符串
+//	 * @param count
+//	 * @return
+//	 */
 	public static String getRandomStr(int count) {
 		char[] codeSeq = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
 				'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
@@ -358,11 +358,11 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 		return s.toString();
 	}
 
-	/**
-	 * 获取随机数字
-	 * @param count
-	 * @return
-	 */
+//	/**
+//	 * 获取随机数字
+//	 * @param count
+//	 * @return
+//	 */
 	public static String getRandomNum(int count) {
 		char[] codeSeq = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 		Random random = new Random();
@@ -374,16 +374,16 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 		return s.toString();
 	}
 	
-	/**
-	 * 获取树节点名字
-	 * @param isShowCode 是否显示编码<br>
-	 * 		true or 1：显示在左侧：(code)name<br>
-	 * 		2：显示在右侧：name(code)<br>
-	 * 		false or null：不显示编码：name
-	 * @param code 编码
-	 * @param name 名称
-	 * @return 
-	 */
+//	/**
+//	 * 获取树节点名字
+//	 * @param isShowCode 是否显示编码<br>
+//	 * 		true or 1：显示在左侧：(code)name<br>
+//	 * 		2：显示在右侧：name(code)<br>
+//	 * 		false or null：不显示编码：name
+//	 * @param code 编码
+//	 * @param name 名称
+//	 * @return
+//	 */
 	public static String getTreeNodeName(String isShowCode, String code, String name) {
 		if ("true".equals(isShowCode) || "1".equals(isShowCode)) {
 			return "(" + code + ") " + StringUtils.replace(name, " ", "");

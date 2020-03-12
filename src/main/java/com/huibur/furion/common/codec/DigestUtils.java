@@ -12,7 +12,7 @@ import com.huibur.furion.common.lang.ExceptionUtils;
 /*******************************************************
  * Copyright(c)2019-2020 HuiBur. All rights reserved.
  * Header: DigestUtils.java
- * Discussion: 不可逆加密工具类
+ * Discussion: Irreversible encryption tools
  * Create Date: 2019/6/6
  * Author: Jerry Wen
  * Version: 1.0
@@ -20,16 +20,11 @@ import com.huibur.furion.common.lang.ExceptionUtils;
 public class DigestUtils {
     private static SecureRandom random = new SecureRandom();
 
-    /**
-     * 生成随机的Byte[]作为salt密钥.
-     *
-     * @param numBytes byte数组的大小
-     */
 	/***
-	 * Name: genSaltencrypt data by default key
-	 * Discussion:
-	 * @param input plain text
-	 * @return String
+	 * Name: genSalt
+	 * Discussion: Generate random Byte [] as salt key
+	 * @param numBytes array size
+	 * @return byte array
 	 ***/
     public static byte[] genSalt(int numBytes) {
         Validate.isTrue(numBytes > 0, "numBytes argument must be a positive integer (1 or larger)", numBytes);
@@ -39,13 +34,13 @@ public class DigestUtils {
     }
 
     /**
-     * 对字符串进行散列, 支持md5与sha1算法.
-     *
-     * @param input      需要散列的字符串
-     * @param algorithm  散列算法（"SHA-1"、"MD5"）
-     * @param salt
-     * @param iterations 迭代次数
-     * @return
+     * Name: digest
+     * Discussion: Hash strings, support md5 and sha1 algorithms.
+     * @param input      String to be hashed
+     * @param algorithm  Hashing algorithm（"SHA-1"、"MD5"）
+     * @param salt       salt key
+     * @param iterations Number of iterations
+     * @return byte array
      */
     public static byte[] digest(byte[] input, String algorithm, byte[] salt, int iterations) {
         try {
@@ -68,10 +63,12 @@ public class DigestUtils {
     }
 
     /**
-     * 对文件进行sha1散列.
-     *
-     * @param input     需要散列的流
-     * @param algorithm 散列算法（"SHA-1"、"MD5"）
+     * Name: digest
+     * Discussion: Sha1 the file.
+     * @param input      file stream
+     * @param algorithm  Hashing algorithm（"SHA-1"、"MD5"）
+     * @return byte array
+     * @throws IOException e
      */
     public static byte[] digest(InputStream input, String algorithm) throws IOException {
         try {

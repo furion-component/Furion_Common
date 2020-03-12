@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.TimeZone;
 
 /**
- * 简单封装Jackson，实现JSON String<->Java Object的Mapper.
+ * 简单封装Jackson，实现JSON String Java Object的Mapper.
  * 封装不同的输出风格, 使用不同的builder函数创建实例.
  * @author ThinkGem
  * @version 2016-3-2
@@ -89,11 +89,11 @@ public class JsonMapper extends ObjectMapper {
 //        }));
 	}
 	
-	/**
-	 * Object可以是POJO，也可以是Collection或数组。
-	 * 如果对象为Null, 返回"null".
-	 * 如果集合为空集合, 返回"[]".
-	 */
+//	/**
+//	 * Object可以是POJO，也可以是Collection或数组。
+//	 * 如果对象为Null, 返回"null".
+//	 * 如果集合为空集合, 返回"[]".
+//	 */
 	public String toJsonString(Object object) {
 		try {
 			return this.writeValueAsString(object);
@@ -103,20 +103,20 @@ public class JsonMapper extends ObjectMapper {
 		}
 	}
 
-	/**
-	 * 输出JSONP格式数据.
-	 */
+//	/**
+//	 * 输出JSONP格式数据.
+//	 */
 	public String toJsonpString(String functionName, Object object) {
 		return toJsonString(new JSONPObject(functionName, object));
 	}
 	
-	/**
-	 * 反序列化POJO或简单Collection如List<String>.
-	 * 如果JSON字符串为Null或"null"字符串, 返回Null.
-	 * 如果JSON字符串为"[]", 返回空集合.
-	 * 如需反序列化复杂Collection如List<MyBean>, 请使用fromJson(String,JavaType)
-	 * @see #fromJson(String, JavaType)
-	 */
+//	/**
+//	 * 反序列化POJO或简单Collection如List<String>.
+//	 * 如果JSON字符串为Null或"null"字符串, 返回Null.
+//	 * 如果JSON字符串为"[]", 返回空集合.
+//	 * 如需反序列化复杂Collection如List<MyBean>, 请使用fromJson(String,JavaType)
+//	 * @see #fromJson(String, JavaType)
+//	 */
 	public <T> T fromJsonString(String jsonString, Class<T> clazz) {
 		if (StringUtils.isEmpty(jsonString) || "<CLOB>".equals(jsonString)) {
 			return null;
@@ -129,10 +129,10 @@ public class JsonMapper extends ObjectMapper {
 		}
 	}
 
-	/**
-	 * 反序列化复杂Collection如List<Bean>, 先使用函数createCollectionType构造类型,然后调用本函数.
-	 * @see #createCollectionType(Class, Class...)
-	 */
+//	/**
+//	 * 反序列化复杂Collection如List<Bean>, 先使用函数createCollectionType构造类型,然后调用本函数.
+//	 * @see #createCollectionType(Class, Class...)
+//	 */
 	@SuppressWarnings("unchecked")
 	public <T> T fromJsonString(String jsonString, JavaType javaType) {
 		if (StringUtils.isEmpty(jsonString) || "<CLOB>".equals(jsonString)) {
@@ -146,18 +146,18 @@ public class JsonMapper extends ObjectMapper {
 		}
 	}
 
-	/**
-	 * 构造泛型的Collection Type如:
-	 * ArrayList<MyBean>, 则调用constructCollectionType(ArrayList.class,MyBean.class)
-	 * HashMap<String,MyBean>, 则调用(HashMap.class,String.class, MyBean.class)
-	 */
+//	/**
+//	 * 构造泛型的Collection Type如:
+//	 * ArrayList<MyBean>, 则调用constructCollectionType(ArrayList.class,MyBean.class)
+//	 * HashMap<String,MyBean>, 则调用(HashMap.class,String.class, MyBean.class)
+//	 */
 	public JavaType createCollectionType(Class<?> collectionClass, Class<?>... elementClasses) {
 		return this.getTypeFactory().constructParametricType(collectionClass, elementClasses);
 	}
 
-	/**
-	 * 当JSON里只含有Bean的部分属性時，更新一个已存在Bean，只覆盖该部分的属性.
-	 */
+//	/**
+//	 * 当JSON里只含有Bean的部分属性時，更新一个已存在Bean，只覆盖该部分的属性.
+//	 */
 	@SuppressWarnings("unchecked")
 	public <T> T update(String jsonString, T object) {
 		try {
@@ -170,66 +170,66 @@ public class JsonMapper extends ObjectMapper {
 		return null;
 	}
 
-	/**
-	 * 设定是否使用Enum的toString函数来读写Enum,
-	 * 为False实时使用Enum的name()函数来读写Enum, 默认为False.
-	 * 注意本函数一定要在Mapper创建后, 所有的读写动作之前调用.
-	 */
+//	/**
+//	 * 设定是否使用Enum的toString函数来读写Enum,
+//	 * 为False实时使用Enum的name()函数来读写Enum, 默认为False.
+//	 * 注意本函数一定要在Mapper创建后, 所有的读写动作之前调用.
+//	 */
 	public JsonMapper enableEnumUseToString() {
 		this.enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);
 		this.enable(DeserializationFeature.READ_ENUMS_USING_TO_STRING);
 		return this;
 	}
 
-	/**
-	 * 支持使用Jaxb的Annotation，使得POJO上的annotation不用与Jackson耦合。
-	 * 默认会先查找jaxb的annotation，如果找不到再找jackson的。
-	 */
+//	/**
+//	 * 支持使用Jaxb的Annotation，使得POJO上的annotation不用与Jackson耦合。
+//	 * 默认会先查找jaxb的annotation，如果找不到再找jackson的。
+//	 */
 	public JsonMapper enableJaxbAnnotation() {
 		JaxbAnnotationModule module = new JaxbAnnotationModule();
 		this.registerModule(module);
 		return this;
 	}
 
-	/**
-	 * 取出Mapper做进一步的设置或使用其他序列化API.
-	 */
+//	/**
+//	 * 取出Mapper做进一步的设置或使用其他序列化API.
+//	 */
 	public ObjectMapper getMapper() {
 		return this;
 	}
 
-	/**
-	 * 获取当前实例
-	 */
+//	/**
+//	 * 获取当前实例
+//	 */
 	public static JsonMapper getInstance() {
 		return JsonMapperHolder.INSTANCE;
 	}
 
-	/**
-	 * 对象转换为JSON字符串
-	 */
+//	/**
+//	 * 对象转换为JSON字符串
+//	 */
 	public static String toJson(Object object){
 		return JsonMapper.getInstance().toJsonString(object);
 	}
 	
-	/**
-	 * 对象转换为JSONP字符串
-	 */
+//	/**
+//	 * 对象转换为JSONP字符串
+//	 */
 	public static String toJsonp(String functionName, Object object){
 		return JsonMapper.getInstance().toJsonpString(functionName, object);
 	}
 	
-	/**
-	 * JSON字符串转换为对象
-	 */
+//	/**
+//	 * JSON字符串转换为对象
+//	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T fromJson(String jsonString, Class<?> clazz){
 		return (T) JsonMapper.getInstance().fromJsonString(jsonString, clazz);
 	}
-	
-	/**
-	 * JSON字符串转换为 List<Map<String, Object>>
-	 */
+//
+//	/**
+//	 * JSON字符串转换为 List<Map<String, Object>>
+//	 */
 	public static List<Map<String, Object>> fromJsonForMapList(String jsonString){
 		List<Map<String, Object>> result = ListUtils.newArrayList();
 		if (StringUtils.startsWith(jsonString, "{")){

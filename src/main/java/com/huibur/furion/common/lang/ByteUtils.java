@@ -27,14 +27,14 @@ public class ByteUtils {
         }
     }
 
-    /***
-     * Name: formatByteSize
-     * Discussion: 字节单位数据换算为最大单位
-     * Params:
-     *      byteSize 字节单位值
-     * Return:
-     *      带最大单位字符串
-     ***/
+//    /***
+//     * Name: formatByteSize
+//     * Discussion: 字节单位数据换算为最大单位
+//     * Params:
+//     *      byteSize 字节单位值
+//     * Return:
+//     *      带最大单位字符串
+//     ***/
     public static String formatByteSize(long byteSize) {
         if (byteSize <= -1) {
             return String.valueOf(byteSize);

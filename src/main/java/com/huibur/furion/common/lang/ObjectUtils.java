@@ -24,9 +24,9 @@ import org.springframework.core.NamedThreadLocal;
  */
 public class ObjectUtils extends org.apache.commons.lang3.ObjectUtils {
 
-	/**
-	 * 转换为Double类型
-	 */
+//	/**
+//	 * 转换为Double类型
+//	 */
 	public static Double toDouble(final Object val) {
 		if (val == null) {
 			return 0D;
@@ -38,30 +38,30 @@ public class ObjectUtils extends org.apache.commons.lang3.ObjectUtils {
 		}
 	}
 
-	/**
-	 * 转换为Float类型
-	 */
+//	/**
+//	 * 转换为Float类型
+//	 */
 	public static Float toFloat(final Object val) {
 		return toDouble(val).floatValue();
 	}
 
-	/**
-	 * 转换为Long类型
-	 */
+//	/**
+//	 * 转换为Long类型
+//	 */
 	public static Long toLong(final Object val) {
 		return toDouble(val).longValue();
 	}
 
-	/**
-	 * 转换为Integer类型
-	 */
+//	/**
+//	 * 转换为Integer类型
+//	 */
 	public static Integer toInteger(final Object val) {
 		return toLong(val).intValue();
 	}
 
-	/**
-	 * 转换为Boolean类型 'true', 'on', 'y', 't', 'yes' or '1' (case insensitive) will return true. Otherwise, false is returned.
-	 */
+//	/**
+//	 * 转换为Boolean类型 'true', 'on', 'y', 't', 'yes' or '1' (case insensitive) will return true. Otherwise, false is returned.
+//	 */
 	public static Boolean toBoolean(final Object val) {
 		if (val == null) {
 			return false;
@@ -69,30 +69,30 @@ public class ObjectUtils extends org.apache.commons.lang3.ObjectUtils {
 		return BooleanUtils.toBoolean(val.toString()) || "1".equals(val.toString());
 	}
 
-	/**
-	 * 转换为字符串
-	 * @param obj
-	 * @return
-	 */
+//	/**
+//	 * 转换为字符串
+//	 * @param obj
+//	 * @return
+//	 */
 	public static String toString(final Object obj) {
 		return toString(obj, StringUtils.EMPTY);
 	}
 
-	/**
-	 * 如果对象为空，则使用defaultVal值
-	 * @param obj
-	 * @param defaultVal
-	 * @return
-	 */
+//	/**
+//	 * 如果对象为空，则使用defaultVal值
+//	 * @param obj
+//	 * @param defaultVal
+//	 * @return
+//	 */
 	public static String toString(final Object obj, final String defaultVal) {
 		return obj == null ? defaultVal : obj.toString();
 	}
 
-	/**
-	 * 空转空字符串（"" to "" ; null to "" ; "null" to "" ; "NULL" to "" ; "Null" to ""）
-	 * @param val 需转换的值
-	 * @return 返回转换后的值
-	 */
+//	/**
+//	 * 空转空字符串（"" to "" ; null to "" ; "null" to "" ; "NULL" to "" ; "Null" to ""）
+//	 * @param val 需转换的值
+//	 * @return 返回转换后的值
+//	 */
 	public static String toStringIgnoreNull(final Object val) {
 		return ObjectUtils.toStringIgnoreNull(val, StringUtils.EMPTY);
 	}
@@ -108,11 +108,11 @@ public class ObjectUtils extends org.apache.commons.lang3.ObjectUtils {
 		return !"".equals(str) && !"null".equals(str.trim().toLowerCase()) ? str : defaultVal;
 	}
 	
-	/**
-	 * 拷贝一个对象（但是子对象无法拷贝）
-	 * @param source
-	 * @param ignoreProperties
-	 */
+//	/**
+//	 * 拷贝一个对象（但是子对象无法拷贝）
+//	 * @param source
+//	 * @param ignoreProperties
+//	 */
 	public static Object copyBean(Object source, String... ignoreProperties){
 		if (source == null){
 			return null;
@@ -126,11 +126,11 @@ public class ObjectUtils extends org.apache.commons.lang3.ObjectUtils {
 		}
 	}
 
-	/**
-	 * 注解到对象复制，只复制能匹配上的方法。 硕正组件用。
-	 * @param annotation
-	 * @param object
-	 */
+//	/**
+//	 * 注解到对象复制，只复制能匹配上的方法。 硕正组件用。
+//	 * @param annotation
+//	 * @param object
+//	 */
 	public static void annotationToObject(Object annotation, Object object) {
 		if (annotation != null && object != null) {
 			Class<?> annotationClass = annotation.getClass();
@@ -154,11 +154,11 @@ public class ObjectUtils extends org.apache.commons.lang3.ObjectUtils {
 		}
 	}
 	
-	/**
-	 * 序列化对象
-	 * @param object
-	 * @return
-	 */
+//	/**
+//	 * 序列化对象
+//	 * @param object
+//	 * @return
+//	 */
 	public static byte[] serialize(Object object) {
 		if (object == null){
 			return null;
@@ -179,11 +179,11 @@ public class ObjectUtils extends org.apache.commons.lang3.ObjectUtils {
 		return bytes;
 	}
 
-	/**
-	 * 反序列化对象
-	 * @param bytes
-	 * @return
-	 */
+//	/**
+//	 * 反序列化对象
+//	 * @param bytes
+//	 * @return
+//	 */
 	public static Object unserialize(byte[] bytes) {
 		if (bytes == null){
 			return null;
@@ -212,11 +212,11 @@ public class ObjectUtils extends org.apache.commons.lang3.ObjectUtils {
 		}
 	};
 
-	/**
-	 * FST 序列化对象
-	 * @param object
-	 * @return
-	 */
+//	/**
+//	 * FST 序列化对象
+//	 * @param object
+//	 * @return
+//	 */
 	public static byte[] serializeFst(Object object) {
 		if (object == null){
 			return null;
@@ -230,11 +230,11 @@ public class ObjectUtils extends org.apache.commons.lang3.ObjectUtils {
 		return bytes;
 	}
 
-	/**
-	 * FST 反序列化对象
-	 * @param bytes
-	 * @return
-	 */
+//	/**
+//	 * FST 反序列化对象
+//	 * @param bytes
+//	 * @return
+//	 */
 	public static Object unserializeFst(byte[] bytes) {
 		if (bytes == null){
 			return null;
@@ -248,10 +248,10 @@ public class ObjectUtils extends org.apache.commons.lang3.ObjectUtils {
 		return object;
 	}
 	
-	/**
-	 * 克隆一个对象（完全拷贝）
-	 * @param source
-	 */
+//	/**
+//	 * 克隆一个对象（完全拷贝）
+//	 * @param source
+//	 */
 	public static Object cloneBean(Object source){
 		if (source == null){
 			return null;

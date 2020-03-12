@@ -15,9 +15,9 @@ import java.io.InputStreamReader;
  */
 public class MacUtils {
 
-	/**
-	 * 获取当前操作系统名称. return 操作系统名称 例如:windows,Linux,Unix等.
-	 */
+//	/**
+//	 * 获取当前操作系统名称. return 操作系统名称 例如:windows,Linux,Unix等.
+//	 */
 	public static String getOSName() {
 		return System.getProperty("os.name").toLowerCase();
 	}

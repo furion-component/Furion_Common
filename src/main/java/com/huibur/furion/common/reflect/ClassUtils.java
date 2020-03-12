@@ -35,10 +35,10 @@ public class ClassUtils {
 	 * are to be included in the results produced by the ResolverUtil.
 	 */
 	public static interface Test {
-		/**
-		 * Will be called repeatedly with candidate classes. Must return True if a class
-		 * is to be included in the results, false otherwise.
-		 */
+//		/**
+//		 * Will be called repeatedly with candidate classes. Must return True if a class
+//		 * is to be included in the results, false otherwise.
+//		 */
 		boolean matches(Class<?> type);
 	}
 
@@ -51,7 +51,7 @@ public class ClassUtils {
 	public static class IsA implements Test {
 		private Class<?> parent;
 
-		/** Constructs an IsA test using the supplied Class as the parent class/interface. */
+//		/** Constructs an IsA test using the supplied Class as the parent class/interface. */
 		public IsA(Class<?> parentType) {
 			this.parent = parentType;
 		}
@@ -79,7 +79,7 @@ public class ClassUtils {
 	public static class AnnotatedWith implements Test {
 		private Class<? extends Annotation> annotation;
 
-		/** Constructs an AnnotatedWith test for the specified annotation type. */
+//		/** Constructs an AnnotatedWith test for the specified annotation type. */
 		public AnnotatedWith(Class<? extends Annotation> annotation) {
 			this.annotation = annotation;
 		}
@@ -135,17 +135,17 @@ public class ClassUtils {
 		this.classloader = classloader;
 	}
 
-	/**
-	 * 查询实现类，继承与parentType，并不是当前类，不是抽象类。
-	 * 
-	 * Attempts to discover classes that are assignable to the type provided. In the case
-	 * that an interface is provided this method will collect implementations. In the case
-	 * of a non-interface class, subclasses will be collected.  Accumulated classes can be
-	 * accessed by calling {@link #getClasses()}.
-	 *
-	 * @param parent the class of interface to find subclasses or implementations of
-	 * @param packageNames one or more package names to scan (including subpackages) for classes
-	 */
+//	/**
+//	 * 查询实现类，继承与parentType，并不是当前类，不是抽象类。
+//	 *
+//	 * Attempts to discover classes that are assignable to the type provided. In the case
+//	 * that an interface is provided this method will collect implementations. In the case
+//	 * of a non-interface class, subclasses will be collected.  Accumulated classes can be
+//	 * accessed by calling {@link #getClasses()}.
+//	 *
+//	 * @param parent the class of interface to find subclasses or implementations of
+//	 * @param packageNames one or more package names to scan (including subpackages) for classes
+//	 */
 	public static <T> Set<Class<?>> findImplementations(Class<?> parent, String... packageNames) {
 		if (packageNames == null) {
 			return new HashSet<Class<?>>();
@@ -158,15 +158,15 @@ public class ClassUtils {
 		return cu.getClasses();
 	}
 
-	/**
-	 * 查询设置此注解的类。
-	 * 
-	 * Attempts to discover classes that are annotated with the annotation. Accumulated
-	 * classes can be accessed by calling {@link #getClasses()}.
-	 * 
-	 * @param annotation the annotation that should be present on matching classes
-	 * @param packageNames one or more package names to scan (including subpackages) for classes
-	 */
+//	/**
+//	 * 查询设置此注解的类。
+//	 *
+//	 * Attempts to discover classes that are annotated with the annotation. Accumulated
+//	 * classes can be accessed by calling {@link #getClasses()}.
+//	 *
+//	 * @param annotation the annotation that should be present on matching classes
+//	 * @param packageNames one or more package names to scan (including subpackages) for classes
+//	 */
 	public static Set<Class<?>> findAnnotated(Class<? extends Annotation> annotation, String... packageNames) {
 		if (packageNames == null) {
 			return new HashSet<Class<?>>();
@@ -179,16 +179,16 @@ public class ClassUtils {
 		return cu.getClasses();
 	}
 
-	/**
-	 * Scans for classes starting at the package provided and descending into subpackages.
-	 * Each class is offered up to the Test as it is discovered, and if the Test returns
-	 * true the class is retained.  Accumulated classes can be fetched by calling
-	 * {@link #getClasses()}.
-	 *
-	 * @param test an instance of {@link Test} that will be used to filter classes
-	 * @param packageName the name of the package from which to start scanning for
-	 *        classes, e.g. {@code net.sourceforge.stripes}
-	 */
+//	/**
+//	 * Scans for classes starting at the package provided and descending into subpackages.
+//	 * Each class is offered up to the Test as it is discovered, and if the Test returns
+//	 * true the class is retained.  Accumulated classes can be fetched by calling
+//	 * {@link #getClasses()}.
+//	 *
+//	 * @param test an instance of {@link Test} that will be used to filter classes
+//	 * @param packageName the name of the package from which to start scanning for
+//	 *        classes, e.g. {@code net.sourceforge.stripes}
+//	 */
 	public ClassUtils find(Test test, String packageName) {
 		String path = getPackagePath(packageName);
 
@@ -206,12 +206,12 @@ public class ClassUtils {
 		return this;
 	}
 
-	/**
-	 * Converts a Java package name to a path that can be looked up with a call to
-	 * {@link ClassLoader#getResources(String)}.
-	 * 
-	 * @param packageName The Java package name to convert to a path
-	 */
+//	/**
+//	 * Converts a Java package name to a path that can be looked up with a call to
+//	 * {@link ClassLoader#getResources(String)}.
+//	 *
+//	 * @param packageName The Java package name to convert to a path
+//	 */
 	protected String getPackagePath(String packageName) {
 		return packageName == null ? null : packageName.replace('.', '/');
 	}

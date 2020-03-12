@@ -164,9 +164,9 @@ public class IdcardUtils extends StringUtils {
 		return idCard18;
 	}
 
-	/**
-	 * 验证身份证是否合法
-	 */
+//	/**
+//	 * 验证身份证是否合法
+//	 */
 	public static boolean validateCard(String idCard) {
 		String card = idCard.trim();
 		if (validateIdCard18(card)) {
@@ -389,12 +389,12 @@ public class IdcardUtils extends StringUtils {
 		return iArr;
 	}
 
-	/**
-	 * 将身份证的每位和对应位的加权因子相乘之后，再得到和值
-	 * 
-	 * @param iArr
-	 * @return 身份证编码。
-	 */
+//	/**
+//	 * 将身份证的每位和对应位的加权因子相乘之后，再得到和值
+//	 *
+//	 * @param iArr
+//	 * @return 身份证编码。
+//	 */
 	public static int getPowerSum(int[] iArr) {
 		int iSum = 0;
 		if (power.length == iArr.length) {
@@ -409,12 +409,12 @@ public class IdcardUtils extends StringUtils {
 		return iSum;
 	}
 
-	/**
-	 * 将power和值与11取模获得余数进行校验码判断
-	 * 
-	 * @param iSum
-	 * @return 校验位
-	 */
+//	/**
+//	 * 将power和值与11取模获得余数进行校验码判断
+//	 *
+//	 * @param iSum
+//	 * @return 校验位
+//	 */
 	public static String getCheckCode18(int iSum) {
 		String sCode = "";
 		switch (iSum % 11) {
@@ -581,12 +581,12 @@ public class IdcardUtils extends StringUtils {
 		return sProvince;
 	}
 
-	/**
-	 * 数字验证
-	 * 
-	 * @param val
-	 * @return 提取的数字。
-	 */
+//	/**
+//	 * 数字验证
+//	 *
+//	 * @param val
+//	 * @return 提取的数字。
+//	 */
 	public static boolean isNum(String val) {
 		return val == null || "".equals(val) ? false : val.matches("^[0-9]*$");
 	}
